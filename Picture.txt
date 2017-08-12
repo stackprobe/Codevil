@@ -1,0 +1,3 @@
+C:\Dat\Dummy.png
+C:\Dat\WhiteBox_8x8.png
+C:\Dat\WhiteCircle.png
