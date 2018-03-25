@@ -41,7 +41,7 @@ void ProcMain(void)
 	GameInit();
 	GameMain();
 	GameFnlz();
-#elif 0 // test
+#elif 1 // test
 	FontTest();
 #elif 0 // test
 	error(); // todo
