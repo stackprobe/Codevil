@@ -131,26 +131,6 @@ void ReleaseAllFontHandle(void)
 
 // ----
 
-/*
-		// •¶ŽšƒeƒXƒg
-
-		DrawStringByFont(
-			0, 200,
-			"‚ ‚ ‚ ",
-			GetFontHandle("‚è‚¢‚Ä‚ª‚«•M", 100, 6)
-			);
-		SetPrint(0, 100);
-		Print("‚¢‚¢‚¢‚¤‚¤‚¤");
-		DrawStringByFont(
-			0, 0,
-			"cerulean.charlotte",
-			GetFontHandle("‚è‚¢‚Ä‚ª‚«•M", 40, 6, 1, 10, 1),
-			0,
-			GetColor(255, 255, 255),
-			GetColor(0, 20, 40)
-			);
-*/
-
 void DrawStringByFont(int x, int y, char *str, FontHandle_t *fh, int tategakiFlag, int color, int edgeColor)
 {
 	errorCase(!str);

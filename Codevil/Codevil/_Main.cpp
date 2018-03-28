@@ -37,7 +37,7 @@ void ProcMain(void)
 {
 #if !LOG_ENABLED
 	error(); // TODO
-#elif 1 // test
+#elif 0 // test
 	GameInit();
 	GameMain();
 	GameFnlz();

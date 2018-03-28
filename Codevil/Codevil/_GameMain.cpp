@@ -15,12 +15,11 @@ void GameMain(void)
 
 	for(; ; )
 	{
-		DrawWall();
-
 		if(GetPound(INP_PAUSE))
 		{
 			break;
 		}
+		DrawWall();
 		EachFrame();
 	}
 	FreezeInput();
