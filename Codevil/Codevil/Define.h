@@ -172,3 +172,6 @@ d2D_t;
 
 #define m_01(value) \
 	((value) == 0 ? 0 : 1)
+
+#define m_10(value) \
+	((value) == 0 ? 1 : 0)

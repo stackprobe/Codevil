@@ -1,12 +1,12 @@
 double GetDistance(double x, double y);
 double GetDistance(double x1, double y1, double x2, double y2);
-void MakeXYSpeed(double x, double y, double destX, double destY, double speed, double &speedX, double &speedY);
+void MakeXYSpeed(double x, double y, double destX, double destY, double speed, double &speedX, double &speedY, double distanceMin = 1.0);
 
 int IsCrashed_Circle_Circle(
 	double x1, double y1, double rCir1,
 	double x2, double y2, double rCir2
 	);
-int IsCrashed_Circle_Podouble(
+int IsCrashed_Circle_Point(
 	double x1, double y1, double rCir,
 	double x2, double y2
 	);
@@ -14,7 +14,7 @@ int IsCrashed_Circle_Rect(
 	double x, double y, double rCir,
 	double l, double t, double r, double b
 	);
-int IsCrashed_Rect_Podouble(
+int IsCrashed_Rect_Point(
 	double l, double t, double r, double b,
 	double x, double y
 	);

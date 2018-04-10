@@ -8,14 +8,14 @@ double GetDistance(double x1, double y1, double x2, double y2)
 {
 	return GetDistance(x1 - x2, y1 - y2);
 }
-void MakeXYSpeed(double x, double y, double destX, double destY, double speed, double &speedX, double &speedY)
+void MakeXYSpeed(double x, double y, double destX, double destY, double speed, double &speedX, double &speedY, double distanceMin)
 {
 	speedX = destX - x;
 	speedY = destY - y;
 
 	double distance = GetDistance(speedX, speedY);
 
-	if(!distance)
+	if(distance < distanceMin)
 	{
 		speedX = speed;
 		speedY = 0;
@@ -37,7 +37,7 @@ int IsCrashed_Circle_Circle(
 	return GetDistance(x1, y1, x2, y2) < rCir1 + rCir2;
 }
 
-int IsCrashed_Circle_Podouble(
+int IsCrashed_Circle_Point(
 	double x1, double y1, double rCir,
 	double x2, double y2
 	)
@@ -54,11 +54,11 @@ int IsCrashed_Circle_Rect(
 	{
 		if(y < t) // 左上
 		{
-			return IsCrashed_Circle_Podouble(x, y, rCir, l, t);
+			return IsCrashed_Circle_Point(x, y, rCir, l, t);
 		}
 		else if(b < y) // 左下
 		{
-			return IsCrashed_Circle_Podouble(x, y, rCir, l, b);
+			return IsCrashed_Circle_Point(x, y, rCir, l, b);
 		}
 		else // 左中段
 		{
@@ -69,11 +69,11 @@ int IsCrashed_Circle_Rect(
 	{
 		if(y < t) // 右上
 		{
-			return IsCrashed_Circle_Podouble(x, y, rCir, r, t);
+			return IsCrashed_Circle_Point(x, y, rCir, r, t);
 		}
 		else if(b < y) // 右下
 		{
-			return IsCrashed_Circle_Podouble(x, y, rCir, r, b);
+			return IsCrashed_Circle_Point(x, y, rCir, r, b);
 		}
 		else // 右中段
 		{
@@ -86,7 +86,7 @@ int IsCrashed_Circle_Rect(
 	}
 }
 
-int IsCrashed_Rect_Podouble(
+int IsCrashed_Rect_Point(
 	double l, double t, double r, double b,
 	double x, double y
 	)

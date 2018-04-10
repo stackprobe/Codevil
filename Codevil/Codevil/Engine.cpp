@@ -1,6 +1,5 @@
 #include "all.h"
 
-int ActFrame;
 int IgnoreEscapeKey;
 
 // 他のファイルからは read only {
@@ -57,7 +56,6 @@ void EachFrame(void)
 
 	ProcFrame++;
 	errorCase(IMAX < ProcFrame); // 192.9日程度でカンスト
-	ActFrame++;
 	m_countDown(FreezeInputFrame);
 	WindowIsActive = IsWindowActive();
 

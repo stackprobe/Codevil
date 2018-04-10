@@ -9,7 +9,6 @@ void GameMain(void)
 {
 	SetCurtain();
 	FreezeInput();
-	ActFrame = 0;
 
 	MusicPlay(MUS_TITLE);
 
@@ -19,6 +18,10 @@ void GameMain(void)
 		{
 			break;
 		}
+
+		if(ProcFrame % 10 == 0)
+			AddCommonEffect(Gnd.EL, 0, P_DUMMY, 400.0, 300.0, 0.0, 0.5, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, cos(ProcFrame / 100.0) * 0.1, sin(ProcFrame / 100.0) * 0.1);
+
 		DrawWall();
 		EachFrame();
 	}

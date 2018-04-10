@@ -12,7 +12,6 @@ int KariMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
 {
 	SetCurtain();
 	FreezeInput();
-	ActFrame = 0;
 
 	for(; ; )
 	{
@@ -134,7 +133,6 @@ void KariPadConfig(void)
 
 	SetCurtain();
 	FreezeInput();
-	ActFrame = 0;
 
 	int currBtnIndex = 0;
 
@@ -320,7 +318,6 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 
 	SetCurtain();
 	FreezeInput();
-	ActFrame = 0;
 
 	for(; ; )
 	{
@@ -371,7 +368,7 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 			value -= valFastStep;
 			chgval = 1;
 		}
-		if(chgval || pulseFrm && ActFrame % pulseFrm == 0)
+		if(chgval || pulseFrm && ProcFrame % pulseFrm == 0)
 		{
 			m_range(value, minval, maxval);
 			valChanged(KVC_ValueToRate(value, minval, valRange));

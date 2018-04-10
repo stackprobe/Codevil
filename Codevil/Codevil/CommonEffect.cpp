@@ -68,10 +68,8 @@ static int CommonEffectFunc(CommonEffect_t *i)
 		DPE_SetBright(i->Extra.Bright_R, i->Extra.Bright_G, i->Extra.Bright_B);
 
 	if(i->Extra.GrphHdlFlag)
-	{
-		DPE.GraphicHandleFlag = 1;
-		DPE.GraphicSize = i->Extra.GrphSize;
-	}
+		DPE_SetGraphicSize(i->Extra.GrphSize);
+
 	DrawBegin(picId, drawX, drawY);
 
 	DrawSlide(i->Extra.SlideX_B, i->Extra.SlideY_B);

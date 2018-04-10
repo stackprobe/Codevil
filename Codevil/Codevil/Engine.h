@@ -1,4 +1,3 @@
-extern int ActFrame;
 extern int IgnoreEscapeKey;
 
 extern __int64 FrameStartTime;

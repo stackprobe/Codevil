@@ -6,8 +6,6 @@ typedef struct DrawPicExtra_st
 	int MosaicOn;
 	int IntPosOn;
 	int IgnoreError;
-	int GraphicHandleFlag;
-	i2D_t GraphicSize; // GraphicHandleFlag != 0 のとき DrawCenter(), DrawBegin() で必要。
 
 	// wrapped by DPE_* -->
 
@@ -18,6 +16,8 @@ typedef struct DrawPicExtra_st
 	double G;
 	double B;
 	int BrightOn;
+	int GraphicHandleFlag;
+	i2D_t GraphicSize; // GraphicHandleFlag != 0 のとき DrawCenter(), DrawBegin() で必要。
 }
 DrawPicExtra_t;
 
