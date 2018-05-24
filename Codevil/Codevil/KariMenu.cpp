@@ -15,6 +15,29 @@ int KariMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
 
 	for(; ; )
 	{
+		if(GetPound(INP_A))
+		{
+			break;
+		}
+		if(GetPound(INP_B))
+		{
+			if(selectIndex == selectMax - 1)
+				break;
+
+			selectIndex = selectMax - 1;
+		}
+		if(GetPound(INP_DIR_8))
+		{
+			selectIndex--;
+		}
+		if(GetPound(INP_DIR_2))
+		{
+			selectIndex++;
+		}
+
+		selectIndex += selectMax;
+		selectIndex %= selectMax;
+
 		DrawCurtain();
 
 		if(KariMenu_WallPicId != -1)
@@ -41,33 +64,9 @@ int KariMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
 		}
 		PE_Reset();
 
-		if(GetPound(INP_A))
-		{
-			break;
-		}
-		if(GetPound(INP_B))
-		{
-			if(selectIndex == selectMax - 1)
-				break;
-
-			selectIndex = selectMax - 1;
-		}
-		if(GetPound(INP_DIR_8))
-		{
-			selectIndex--;
-		}
-		if(GetPound(INP_DIR_2))
-		{
-			selectIndex++;
-		}
-
-		selectIndex += selectMax;
-		selectIndex %= selectMax;
-
 		EachFrame();
 	}
 	FreezeInput();
-	DrawCurtain();
 
 	return selectIndex;
 }
@@ -144,6 +143,34 @@ void KariPadConfig(void)
 			continue;
 		}
 
+		if(GetKeyInput(KEY_INPUT_SPACE) == 1)
+		{
+			RestorePadBtnId();
+			break;
+		}
+		if(GetKeyInput(KEY_INPUT_Z) == 1)
+		{
+			currBtnIndex++;
+			goto endInput;
+		}
+		int pressBtnId = -1;
+
+		for(int padId = 0; padId < GetPadCount(); padId++)
+		for(int btnId = 0; btnId < PAD_BUTTON_MAX; btnId++)
+			if(GetPadInput(padId, btnId) == 1)
+				pressBtnId = btnId;
+
+		for(int c = 0; c < currBtnIndex; c++)
+			if(*BtnPList[c] == pressBtnId)
+				pressBtnId = -1;
+
+		if(pressBtnId != -1)
+		{
+			*BtnPList[currBtnIndex] = pressBtnId;
+			currBtnIndex++;
+		}
+endInput:
+
 		DrawCurtain();
 
 		if(KariMenu_WallPicId != -1)
@@ -190,33 +217,6 @@ void KariPadConfig(void)
 		Print("★　[Z]を押すとボタンの割り当てをスキップします。");
 		PrintRet();
 
-		if(GetKeyInput(KEY_INPUT_SPACE) == 1)
-		{
-			RestorePadBtnId();
-			break;
-		}
-		if(GetKeyInput(KEY_INPUT_Z) == 1)
-		{
-			currBtnIndex++;
-			goto doEachFrame;
-		}
-		int pressBtnId = -1;
-
-		for(int padId = 0; padId < GetPadCount(); padId++)
-		for(int btnId = 0; btnId < PAD_BUTTON_MAX; btnId++)
-			if(GetPadInput(padId, btnId) == 1)
-				pressBtnId = btnId;
-
-		for(int c = 0; c < currBtnIndex; c++)
-			if(*BtnPList[c] == pressBtnId)
-				pressBtnId = -1;
-
-		if(pressBtnId != -1)
-		{
-			*BtnPList[currBtnIndex] = pressBtnId;
-			currBtnIndex++;
-		}
-doEachFrame:
 		EachFrame();
 	}
 
@@ -224,7 +224,6 @@ doEachFrame:
 	memFree(PadBtnIdBkup);
 
 	FreezeInput();
-	DrawCurtain();
 }
 
 // ---- 画面サイズ ----
@@ -323,19 +322,6 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 	{
 		int chgval = 0;
 
-		DrawCurtain();
-
-		if(KariMenu_WallPicId != -1)
-		{
-			DrawRect(KariMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
-			DrawCurtain(KariMenu_WallCurtain);
-		}
-		if(KariMenu_Color != -1)
-			PE.Color = KariMenu_Color;
-
-		if(KariMenu_BorderColor != -1)
-			PE_Border(KariMenu_BorderColor);
-
 		if(GetPound(INP_A))
 		{
 			break;
@@ -374,6 +360,19 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 			valChanged(KVC_ValueToRate(value, minval, valRange));
 		}
 
+		DrawCurtain();
+
+		if(KariMenu_WallPicId != -1)
+		{
+			DrawRect(KariMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
+			DrawCurtain(KariMenu_WallCurtain);
+		}
+		if(KariMenu_Color != -1)
+			PE.Color = KariMenu_Color;
+
+		if(KariMenu_BorderColor != -1)
+			PE_Border(KariMenu_BorderColor);
+
 		SetPrint(KariMenu_X, KariMenu_Y, KariMenu_YStep);
 		Print(menuTitle);
 		PrintRet();
@@ -395,7 +394,6 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 		EachFrame();
 	}
 	FreezeInput();
-	DrawCurtain();
 
 	return KVC_ValueToRate(value, minval, valRange);
 }

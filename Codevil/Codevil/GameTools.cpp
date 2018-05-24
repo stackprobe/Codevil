@@ -181,9 +181,7 @@ void Print_x(char *token)
 	P_X += w;
 }
 
-// ---- ui tools ----
-
-// ui ‚¾‚©‚ç double g‚Á‚Ä‚à—Ç‚¢B‚İ‚½‚¢‚È
+// ---- UI tools ----
 
 void DrawCurtain(double whiteLevel)
 {
