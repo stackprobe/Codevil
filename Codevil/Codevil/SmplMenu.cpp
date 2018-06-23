@@ -1,14 +1,14 @@
 #include "all.h"
 
-int KariMenu_Color = -1;
-int KariMenu_BorderColor = -1;
-int KariMenu_WallPicId = -1;
-double KariMenu_WallCurtain = 0.0;
-int KariMenu_X = 16;
-int KariMenu_Y = 16;
-int KariMenu_YStep = 32;
+int SmplMenu_Color = -1;
+int SmplMenu_BorderColor = -1;
+int SmplMenu_WallPicId = -1;
+double SmplMenu_WallCurtain = 0.0;
+int SmplMenu_X = 16;
+int SmplMenu_Y = 16;
+int SmplMenu_YStep = 32;
 
-int KariMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
+int SmplMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
 {
 	SetCurtain();
 	FreezeInput();
@@ -40,19 +40,19 @@ int KariMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
 
 		DrawCurtain();
 
-		if(KariMenu_WallPicId != -1)
+		if(SmplMenu_WallPicId != -1)
 		{
-			DrawRect(KariMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
-//			DrawCenter(KariMenu_WallPicId, SCREEN_W / 2.0, SCREEN_H / 2.0); // old
-			DrawCurtain(KariMenu_WallCurtain);
+			DrawRect(SmplMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
+//			DrawCenter(SmplMenu_WallPicId, SCREEN_W / 2.0, SCREEN_H / 2.0); // old
+			DrawCurtain(SmplMenu_WallCurtain);
 		}
-		if(KariMenu_Color != -1)
-			PE.Color = KariMenu_Color;
+		if(SmplMenu_Color != -1)
+			PE.Color = SmplMenu_Color;
 
-		if(KariMenu_BorderColor != -1)
-			PE_Border(KariMenu_BorderColor);
+		if(SmplMenu_BorderColor != -1)
+			PE_Border(SmplMenu_BorderColor);
 
-		SetPrint(KariMenu_X, KariMenu_Y, KariMenu_YStep);
+		SetPrint(SmplMenu_X, SmplMenu_Y, SmplMenu_YStep);
 //		SetPrint(16, 16, 32); // old
 		Print(menuTitle);
 		PrintRet();
@@ -79,7 +79,7 @@ static void RestorePadBtnId(void)
 {
 	memcpy(&Gnd.PadBtnId, PadBtnIdBkup, sizeof(Gnd.PadBtnId));
 }
-void KariPadConfig(void)
+void SmplPadConfig(void)
 {
 	int *BtnPList[INP_MAX] =
 	{
@@ -173,19 +173,19 @@ endInput:
 
 		DrawCurtain();
 
-		if(KariMenu_WallPicId != -1)
+		if(SmplMenu_WallPicId != -1)
 		{
-			DrawRect(KariMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
-//			DrawCenter(KariMenu_WallPicId, SCREEN_W / 2.0, SCREEN_H / 2.0); // old
-			DrawCurtain(KariMenu_WallCurtain);
+			DrawRect(SmplMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
+//			DrawCenter(SmplMenu_WallPicId, SCREEN_W / 2.0, SCREEN_H / 2.0); // old
+			DrawCurtain(SmplMenu_WallCurtain);
 		}
-		if(KariMenu_Color != -1)
-			PE.Color = KariMenu_Color;
+		if(SmplMenu_Color != -1)
+			PE.Color = SmplMenu_Color;
 
-		if(KariMenu_BorderColor != -1)
-			PE_Border(KariMenu_BorderColor);
+		if(SmplMenu_BorderColor != -1)
+			PE_Border(SmplMenu_BorderColor);
 
-		SetPrint(KariMenu_X, KariMenu_Y, KariMenu_YStep);
+		SetPrint(SmplMenu_X, SmplMenu_Y, SmplMenu_YStep);
 //		SetPrint(16, 16, 32); // old
 		Print("ゲームパッドのボタン設定");
 		PrintRet();
@@ -228,7 +228,7 @@ endInput:
 
 // ---- 画面サイズ ----
 
-void KariWindowSizeConfig(void)
+void SmplWindowSizeConfig(void)
 {
 	char *MENU_ITEMS[] =
 	{
@@ -241,8 +241,8 @@ void KariWindowSizeConfig(void)
 		"1400 x 1050",
 		"1500 x 1125",
 		"1600 x 1200",
-		"フルスクリーン",
-		"フルスクリーン (縦横比を維持する)",
+		"1700 x 1275",
+		"1800 x 1350",
 		"戻る",
 	};
 
@@ -250,7 +250,7 @@ void KariWindowSizeConfig(void)
 
 	for(; ; )
 	{
-		selectIndex = KariMenu("ウィンドウサイズ設定", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
+		selectIndex = SmplMenu("ウィンドウサイズ設定", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
 
 		switch(selectIndex)
 		{
@@ -263,30 +263,8 @@ void KariWindowSizeConfig(void)
 		case 6: SetScreenSize(1400, 1050); break;
 		case 7: SetScreenSize(1500, 1125); break;
 		case 8: SetScreenSize(1600, 1200); break;
-
-		case 9:
-			SetScreenSize(
-				GetSystemMetrics(SM_CXSCREEN),
-				GetSystemMetrics(SM_CYSCREEN)
-				);
-			break;
-
-		case 10:
-			{
-				int w = GetSystemMetrics(SM_CXSCREEN);
-				int h = GetSystemMetrics(SM_CYSCREEN);
-
-				if(w * SCREEN_H < h * SCREEN_W) // 縦長モニタ -> 横幅に合わせる
-				{
-					h = d2i(((double)w * SCREEN_H) / SCREEN_W);
-				}
-				else // 横長モニタ -> 縦幅に合わせる
-				{
-					w = d2i(((double)h * SCREEN_W) / SCREEN_H);
-				}
-				SetScreenSize(w, h);
-			}
-			break;
+		case 9: SetScreenSize(1700, 1275); break;
+		case 10: SetScreenSize(1800, 1350); break;
 
 		case 11:
 			goto endLoop;
@@ -300,7 +278,7 @@ endLoop:;
 
 // ---- ボリューム ----
 
-static double KVC_ValueToRate(double value, double minval, double valRange)
+static double SVC_ValueToRate(double value, double minval, double valRange)
 {
 	return (double)(value - minval) / valRange;
 }
@@ -309,7 +287,7 @@ static double KVC_ValueToRate(double value, double minval, double valRange)
 	(ret, rate): 0.0 - 1.0
 	pulseFrm: 0 == 無効
 */
-double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, int valStep, int valFastStep, void (*valChanged)(double), int pulseFrm)
+double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, int valStep, int valFastStep, void (*valChanged)(double), int pulseFrm)
 {
 	int valRange = maxval - minval;
 	int value = minval + d2i(rate * valRange);
@@ -357,23 +335,23 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 		if(chgval || pulseFrm && ProcFrame % pulseFrm == 0)
 		{
 			m_range(value, minval, maxval);
-			valChanged(KVC_ValueToRate(value, minval, valRange));
+			valChanged(SVC_ValueToRate(value, minval, valRange));
 		}
 
 		DrawCurtain();
 
-		if(KariMenu_WallPicId != -1)
+		if(SmplMenu_WallPicId != -1)
 		{
-			DrawRect(KariMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
-			DrawCurtain(KariMenu_WallCurtain);
+			DrawRect(SmplMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
+			DrawCurtain(SmplMenu_WallCurtain);
 		}
-		if(KariMenu_Color != -1)
-			PE.Color = KariMenu_Color;
+		if(SmplMenu_Color != -1)
+			PE.Color = SmplMenu_Color;
 
-		if(KariMenu_BorderColor != -1)
-			PE_Border(KariMenu_BorderColor);
+		if(SmplMenu_BorderColor != -1)
+			PE_Border(SmplMenu_BorderColor);
 
-		SetPrint(KariMenu_X, KariMenu_Y, KariMenu_YStep);
+		SetPrint(SmplMenu_X, SmplMenu_Y, SmplMenu_YStep);
 		Print(menuTitle);
 		PrintRet();
 
@@ -395,5 +373,5 @@ double KariVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 	}
 	FreezeInput();
 
-	return KVC_ValueToRate(value, minval, valRange);
+	return SVC_ValueToRate(value, minval, valRange);
 }

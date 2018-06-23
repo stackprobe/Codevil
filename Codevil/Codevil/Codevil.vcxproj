@@ -95,7 +95,7 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Jammer.cpp" />
     <ClCompile Include="JChar.cpp" />
-    <ClCompile Include="KariMenu.cpp" />
+    <ClCompile Include="SmplMenu.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Mutex.cpp" />
     <ClCompile Include="SubScreen.cpp" />
@@ -145,7 +145,7 @@
     <ClInclude Include="Font.h" />
     <ClInclude Include="Jammer.h" />
     <ClInclude Include="JChar.h" />
-    <ClInclude Include="KariMenu.h" />
+    <ClInclude Include="SmplMenu.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Mutex.h" />
     <ClInclude Include="SubScreen.h" />

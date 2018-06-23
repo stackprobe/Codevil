@@ -38,7 +38,7 @@ void MainMenu(void)
 
 	for(; ; )
 	{
-		selectIndex = KariMenu("Codevil", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
+		selectIndex = SmplMenu("Codevil", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
 
 		switch(selectIndex)
 		{
