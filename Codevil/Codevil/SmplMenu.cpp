@@ -285,10 +285,12 @@ static double SVC_ValueToRate(double value, double minval, double valRange)
 
 /*
 	(ret, rate): 0.0 - 1.0
-	pulseFrm: 0 == –³Œø
+	pulse: NULL == –³Œø
 */
-double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, int valStep, int valFastStep, void (*valChanged)(double), int pulseFrm)
+double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, int valStep, int valFastStep, void (*valChanged)(double), void (*pulse)(void))
 {
+	const int PULSE_FRM = 60;
+
 	int valRange = maxval - minval;
 	int value = minval + d2i(rate * valRange);
 	int origval = value;
@@ -332,10 +334,14 @@ double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 			value -= valFastStep;
 			chgval = 1;
 		}
-		if(chgval || pulseFrm && ProcFrame % pulseFrm == 0)
+		if(chgval)
 		{
 			m_range(value, minval, maxval);
 			valChanged(SVC_ValueToRate(value, minval, valRange));
+		}
+		if(pulse && ProcFrame % PULSE_FRM == 0)
+		{
+			pulse();
 		}
 
 		DrawCurtain();

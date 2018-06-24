@@ -42,7 +42,7 @@ void ProcMain(void)
 	GameMain();
 	GameFnlz();
 #elif 1 // test
-	MainMenu();
+	TitleMenu();
 #elif 0 // test
 	FontTest();
 #elif 0 // test

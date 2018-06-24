@@ -144,7 +144,7 @@
     <ClCompile Include="_GameMain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="_MenuMenu.cpp">
+    <ClCompile Include="_TitleMenu.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -308,7 +308,7 @@
     <ClInclude Include="_GameMain.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="_MenuMenu.h">
+    <ClInclude Include="_TitleMenu.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

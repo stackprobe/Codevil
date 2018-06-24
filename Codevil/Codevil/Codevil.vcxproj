@@ -132,7 +132,7 @@
     <ClCompile Include="_Game.cpp" />
     <ClCompile Include="_GameMain.cpp" />
     <ClCompile Include="_Main.cpp" />
-    <ClCompile Include="_MenuMenu.cpp" />
+    <ClCompile Include="_TitleMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="aes128.h" />
@@ -188,7 +188,7 @@
     <ClInclude Include="_Game.h" />
     <ClInclude Include="_GameMain.h" />
     <ClInclude Include="_Main.h" />
-    <ClInclude Include="_MenuMenu.h" />
+    <ClInclude Include="_TitleMenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

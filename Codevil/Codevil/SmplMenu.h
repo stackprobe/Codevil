@@ -7,6 +7,6 @@ extern int SmplMenu_Y;
 extern int SmplMenu_YStep;
 
 int SmplMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex = 0);
-double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, int valStep, int valFastStep, void (*valChanged)(double), int pulseFlag = 0);
+double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, int valStep, int valFastStep, void (*valChanged)(double), void (*pulse)(void) = NULL);
 void SmplPadConfig(void);
 void SmplWindowSizeConfig(void);
