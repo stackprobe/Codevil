@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClCompile Include="aes128.cpp" />
     <ClCompile Include="bmp.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="Crash.cpp" />
     <ClCompile Include="DatStrings.cpp" />
     <ClCompile Include="Etcetera.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="aes128.h" />
     <ClInclude Include="bmp.h" />
     <ClInclude Include="bitTable.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Crash.h" />
     <ClInclude Include="DatStrings.h" />
     <ClInclude Include="Etcetera.h" />

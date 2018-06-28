@@ -36,7 +36,8 @@ static void FontTest(void)
 void ProcMain(void)
 {
 #if !LOG_ENABLED
-	error(); // TODO
+TitleMenu(); // test
+	//error(); // TODO
 #elif 0 // test
 	GameInit();
 	GameMain();

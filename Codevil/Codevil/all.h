@@ -53,3 +53,4 @@
 #include "_Game.h"
 #include "_GameMain.h"
 #include "_TitleMenu.h"
+#include "Config.h"
