@@ -36,7 +36,7 @@ static void SettingMenu(void)
 
 	for(; ; )
 	{
-		selectIndex = SmplMenu("Codevil", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
+		selectIndex = SmplMenu("ê›íË", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
 
 		switch(selectIndex)
 		{

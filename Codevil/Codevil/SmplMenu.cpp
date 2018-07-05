@@ -277,6 +277,28 @@ endLoop:;
 }
 
 // ---- É{ÉäÉÖÅ[ÉÄ ----
+/*
+	-- e.g.
+
+	static void XXX_BGMVolumeChanged(double volume)
+	{
+		Gnd.MusicVolume = volume;
+		UpdateMusicVolume();
+	}
+	static void XXX_SEVolumeChanged(double volume)
+	{
+		Gnd.SEVolume = volume;
+		UpdateSEVolume();
+	}
+	static void XXX_SEVolumePulse(void)
+	{
+		SEPlay(rndPct(50) ? SE_PAUSE_IN : SE_PAUSE_OUT);
+	}
+
+	SmplVolumeConfig("ÇaÇfÇlâπó ", Gnd.MusicVolume, 0, 100, 1, 10, XXX_BGMVolumeChanged); 
+
+	SmplVolumeConfig("ÇrÇdâπó ", Gnd.SEVolume, 0, 100, 1, 10, XXX_SEVolumeChanged, XXX_SEVolumePulse); 
+*/
 
 static double SVC_ValueToRate(double value, double minval, double valRange)
 {
