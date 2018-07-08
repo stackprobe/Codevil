@@ -5,6 +5,17 @@ static void DrawWall(void)
 	DrawCurtain();
 	DrawRect(P_WHITEBOX, 100, 100, SCREEN_W - 200, SCREEN_H - 200);
 }
+
+static void LeaveTitleMenu(void)
+{
+	MusicFade();
+	SetCurtain(30, -1.0);
+}
+static void ReturnTitleMenu(void)
+{
+	MusicPlay(MUS_TITLE);
+}
+
 static void SM_BGMVolumeChanged(double volume)
 {
 	Gnd.MusicVolume = volume;
@@ -90,7 +101,11 @@ void TitleMenu(void)
 		switch(selectIndex)
 		{
 		case 0:
-			// TODO
+			LeaveTitleMenu();
+			GameInit();
+			GameMain();
+			GameFnlz();
+			ReturnTitleMenu();
 			break;
 
 		case 1:

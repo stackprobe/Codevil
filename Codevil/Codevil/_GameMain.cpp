@@ -10,7 +10,7 @@ void GameMain(void)
 	SetCurtain();
 	FreezeInput();
 
-	MusicPlay(MUS_TITLE);
+	MusicPlay(MUS_FIELD_01);
 
 	for(; ; )
 	{

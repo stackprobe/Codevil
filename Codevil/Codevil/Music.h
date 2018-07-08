@@ -5,6 +5,7 @@ enum
 	// app >
 
 	MUS_TITLE,
+	MUS_FIELD_01,
 
 	// < app
 
