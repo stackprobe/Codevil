@@ -35,4 +35,6 @@ void GameMain(void)
 		EachFrame();
 	}
 	sceneLeave();
+
+	Gnd.EL->Clear();
 }

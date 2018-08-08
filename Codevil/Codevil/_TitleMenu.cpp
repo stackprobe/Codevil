@@ -87,8 +87,7 @@ void TitleMenu(void)
 	char *MENU_ITEMS[] =
 	{
 		"ゲームスタート",
-		"コンテニュー",
-		"DEBUG_TEST",
+		"コンテニュー？",
 		"設定",
 		"終了",
 	};
@@ -113,14 +112,10 @@ void TitleMenu(void)
 			break;
 
 		case 2:
-			// TODO
-			break;
-
-		case 3:
 			SettingMenu();
 			break;
 
-		case 4:
+		case 3:
 			goto endMenu;
 
 		default:
