@@ -23,6 +23,23 @@ void GameMain(void)
 			AddCommonEffect(Gnd.EL, 0, P_DUMMY, 400.0, 300.0, 0.0, 0.5, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, cos(ProcFrame / 100.0) * 0.1, sin(ProcFrame / 100.0) * 0.1);
 
 		DrawWall();
+
+
+
+		// フォントのテスト
+		DrawStringByFont(
+			10, 10,
+			"げんかいみんちょう",
+			GetFontHandle("源界明朝", 70, 6, 1, 2)
+			);
+		DrawStringByFont(
+			10, 550,
+			"りいてがき",
+			GetFontHandle("りいてがき筆", 50, 6, 1, 2)
+			);
+
+
+
 		EachFrame();
 	}
 	FreezeInput();

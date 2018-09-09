@@ -155,6 +155,7 @@ static void DxPrv_SetScreenSize(int w, int h)
 
 	UnloadAllPicResHandle();
 	UnloadAllSubScreenHandle();
+	ReleaseAllFontHandle();
 
 	errorCase(SetGraphMode(w, h, 32) != DX_CHANGESCREEN_OK); // ? Ž¸”s
 
