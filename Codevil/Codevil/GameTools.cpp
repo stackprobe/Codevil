@@ -25,7 +25,7 @@ static oneObject(autoQueue<double>, new autoQueue<double>(), GetCurtainQueue);
 double CurrCurtainWhiteLevel;
 int LastCurtainFrame = -1;
 
-void CurtainEachFrame(int oncePerFrame)
+void CurtainEachFrame(int oncePerFrame) // EachFrame()‘O‚ÉŒÄ‚Ño‚µ‚Ä‚à‰Â
 {
 	if(oncePerFrame)
 	{

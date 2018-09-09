@@ -23,8 +23,13 @@ static int InputStatus[INP_MAX];
 
 static void MixInput(int inpId, int keyId, int btnId)
 {
+	int freezeInputFrame_BKUP = FreezeInputFrame;
+	FreezeInputFrame = 0;
+
 	int keyDown = 1 <= GetKeyInput(keyId);
 	int btnDown = 1 <= GetPadInput(Gnd.PrimaryPadId, btnId);
+
+	FreezeInputFrame = freezeInputFrame_BKUP;
 
 	updateInput(InputStatus[inpId], keyDown || btnDown);
 }
