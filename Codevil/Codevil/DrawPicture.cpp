@@ -127,7 +127,8 @@ static int DrawPicFunc(Param_t *i)
 	{
 	case 'F':
 		{
-			const double F_ZURE = -0.5;
+			const double F_ZURE = 0.0;
+//			const double F_ZURE = -0.5;
 
 			if(i->Extra.IntPosOn ?
 				DrawModiGraph(
