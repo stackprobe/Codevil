@@ -157,6 +157,13 @@ int isSame(autoList<uchar> *binData1, autoList<uchar> *binData2)
 	return 1;
 }
 
+// 角度から方向 ... MakeXYSpeed, angleToXY
+
+/*
+	ret: 0.0 ～ PI * 2.0
+		右真横(0,0 -> 1,0方向)を0.0として、時計回り。(但し、X軸プラス方向を右、Y軸プラス方向を下)
+		1周は PI * 2.0
+*/
 double getAngle(double x, double y)
 {
 	if(y < 0.0) return PI * 2.0 - getAngle(x, -y);
@@ -207,4 +214,20 @@ void rotatePos(double angle, double &x, double &y, double originX, double origin
 
 	x += originX;
 	y += originY;
+}
+void angleToXY(double angle, double distance, double &x, double &y)
+{
+	x = distance * cos(angle);
+	y = distance * sin(angle);
+}
+void angleToXY(double angle, double distance, double &x, double &y, double originX, double originY)
+{
+	angleToXY(angle, distance, x, y);
+
+	x += originX;
+	y += originY;
+}
+void angleMoveXY(double angle, double distance, double &x, double &y)
+{
+	angleToXY(angle, distance, x, y, x, y);
 }
