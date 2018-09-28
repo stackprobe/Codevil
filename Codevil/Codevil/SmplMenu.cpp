@@ -243,6 +243,8 @@ void SmplWindowSizeConfig(void)
 		"1600 x 1200",
 		"1700 x 1275",
 		"1800 x 1350",
+		"フルスクリーン",
+		"フルスクリーン (縦横比維持)",
 		"戻る",
 	};
 
@@ -265,8 +267,24 @@ void SmplWindowSizeConfig(void)
 		case 8: SetScreenSize(1600, 1200); break;
 		case 9: SetScreenSize(1700, 1275); break;
 		case 10: SetScreenSize(1800, 1350); break;
+		case 11: SetScreenSize(Monitor_W, Monitor_H); break;
+		case 12:
+			{
+				int w = Monitor_W;
+				int h = (SCREEN_H * Monitor_W) / SCREEN_W;
 
-		case 11:
+				if(Monitor_H < h)
+				{
+					h = Monitor_H;
+					w = (SCREEN_W * Monitor_H) / SCREEN_H;
+
+					errorCase(Monitor_W < w);
+				}
+				SetScreenSize(w, h);
+			}
+			break;
+
+		case 13:
 			goto endLoop;
 
 		default:
