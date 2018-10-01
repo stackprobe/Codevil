@@ -39,7 +39,7 @@ void error2(char *file, int lineno, char *function)
 	termination(1);
 }
 
-#define LOG_DIR "C:\\temp"
+#define LOG_DIR "C:\\tmp"
 #define LOG_FILE LOG_DIR "\\Game.log"
 
 FILE *GetLogFp(void)

@@ -8,6 +8,9 @@ double GetDistance(double x1, double y1, double x2, double y2)
 {
 	return GetDistance(x1 - x2, y1 - y2);
 }
+
+// ‚à‚µ‚©‚µ‚Ä... getAngle, angleToXY, angleMoveXY, rotatePos
+
 void MakeXYSpeed(double x, double y, double destX, double destY, double speed, double &speedX, double &speedY, double distanceMin)
 {
 	speedX = destX - x;
