@@ -71,7 +71,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <AdditionalOptions> /J</AdditionalOptions>
+      <AdditionalOptions> /J /we4701</AdditionalOptions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>all.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
