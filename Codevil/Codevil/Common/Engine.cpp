@@ -38,8 +38,17 @@ void EachFrame(void)
 	if(Gnd.MainScreen && CurrDrawScreenHandle == GetHandle(Gnd.MainScreen))
 	{
 		ChangeDrawScreen(DX_SCREEN_BACK);
+
+		// app >
+
 		errorCase(DrawExtendGraph(0, 0, Gnd.RealScreen_W, Gnd.RealScreen_H, GetHandle(Gnd.MainScreen), 0)); // ? Ž¸”s
+
+		// < app
 	}
+
+	// app >
+
+	// < app
 
 	// DxLib >
 

@@ -4,6 +4,9 @@ typedef struct Gnd_st
 	int PrimaryPadId; // -1 == 未設定
 	SubScreen_t *MainScreen; // NULL == 不使用
 
+	iRect_t Monitors[MONITOR_MAX];
+	int MonitorNum;
+
 	// app >
 
 	// < app
@@ -26,7 +29,7 @@ typedef struct Gnd_st
 		0 - (PAD_BUTTON_MAX - 1) == 割り当てボタンID
 		def: SNWPB_*
 	*/
-	struct
+	struct PadBtnId_st
 	{
 		int Dir_2;
 		int Dir_4;
@@ -44,6 +47,8 @@ typedef struct Gnd_st
 		int Start;
 	}
 	PadBtnId;
+
+	struct PadBtnId_st KbdKeyId;
 
 	int RO_MouseDispMode;
 

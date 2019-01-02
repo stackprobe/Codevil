@@ -25,3 +25,5 @@ void ReleaseAllFontHandle(void);
 // ----
 
 void DrawStringByFont(int x, int y, char *str, FontHandle_t *fh, int tategakiFlag = 0, int color = GetColor(255, 255, 255), int edgeColor = GetColor(0, 0, 0));
+int GetDrawStringByFontWidth(char *str, FontHandle_t *fh, int tategakiFlag = 0);
+void DrawStringByFont_XCenter(int x, int y, char *str, FontHandle_t *fh, int tategakiFlag = 0, int color = GetColor(255, 255, 255), int edgeColor = GetColor(0, 0, 0));

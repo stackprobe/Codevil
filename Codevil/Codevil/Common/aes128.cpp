@@ -1471,6 +1471,8 @@ FUNC_STATIC void AES128_Decrypt_rcbc(void *block, int size)
 	uchar rawKey[16];
 	u32 ctx[44];
 
+	// app >
+
 #define INIT_RK() \
 	my_memset(&rk, 0x80, 16)
 
@@ -1510,6 +1512,8 @@ FUNC_STATIC void AES128_Decrypt_rcbc(void *block, int size)
 	COMPLEX('L');
 
 #undef COMPLEX
+
+	// < app
 
 	for(int index = 0; index < 2; index++)
 	for(int n = 0; n < 8; n++)

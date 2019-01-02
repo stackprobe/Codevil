@@ -36,9 +36,26 @@ void Gnd_INIT(void)
 	Gnd.PadBtnId.Pause = SNWPB_DSTART;
 	Gnd.PadBtnId.Start = SNWPB_USTART;
 
-	Gnd.RO_MouseDispMode = 0;
+	Gnd.KbdKeyId.Dir_2 = KEY_INPUT_DOWN;
+	Gnd.KbdKeyId.Dir_4 = KEY_INPUT_LEFT;
+	Gnd.KbdKeyId.Dir_6 = KEY_INPUT_RIGHT;
+	Gnd.KbdKeyId.Dir_8 = KEY_INPUT_UP;
+	Gnd.KbdKeyId.A = KEY_INPUT_Z;
+	Gnd.KbdKeyId.B = KEY_INPUT_X;
+	Gnd.KbdKeyId.C = KEY_INPUT_C;
+	Gnd.KbdKeyId.D = KEY_INPUT_V;
+	Gnd.KbdKeyId.E = KEY_INPUT_A;
+	Gnd.KbdKeyId.F = KEY_INPUT_S;
+	Gnd.KbdKeyId.L = KEY_INPUT_D;
+	Gnd.KbdKeyId.R = KEY_INPUT_F;
+	Gnd.KbdKeyId.Pause = KEY_INPUT_SPACE;
+	Gnd.KbdKeyId.Start = KEY_INPUT_RETURN;
+
+	Gnd.RO_MouseDispMode = 1;
 
 	// app >
+
+	Gnd.RO_MouseDispMode = 0;
 
 	// < app
 }
@@ -60,7 +77,7 @@ void Gnd_FNLZ(void)
 // ---- SaveData ----
 
 #define SAVE_FILE "SaveData.dat"
-#define SAVEDATA_SIGNATURE "Codevil_SaveData " __DATE__ " " __TIME__
+#define SAVEDATA_SIGNATURE "__Codevil__SaveData " __DATE__ " " __TIME__
 
 static autoList<uchar> *SaveData;
 static int SDIndex;
@@ -84,6 +101,12 @@ static int SD_ReadBoolean(void)
 static int SD_ReadInt(int minval, int maxval)
 {
 	int value = atoi(SD_ReadLine());
+	m_range(value, minval, maxval);
+	return value;
+}
+static __int64 SD_ReadInt64(__int64 minval, __int64 maxval)
+{
+	__int64 value = _atoi64(SD_ReadLine());
 	m_range(value, minval, maxval);
 	return value;
 }
@@ -144,6 +167,10 @@ static void SD_WriteLine_x(char *line)
 static void SD_WriteInt(int value)
 {
 	SD_WriteLine_x(xcout("%d", value));
+}
+static void SD_WriteInt64(__int64 value)
+{
+	SD_WriteLine_x(xcout("%I64d", value));
 }
 static void SD_WriteDouble(double value, int denom)
 {
@@ -271,6 +298,21 @@ void ImportSaveData(void)
 	Gnd.PadBtnId.Pause = SD_ReadInt(-1, PAD_BUTTON_MAX - 1);
 	Gnd.PadBtnId.Start = SD_ReadInt(-1, PAD_BUTTON_MAX - 1);
 
+	Gnd.KbdKeyId.Dir_2 = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.Dir_4 = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.Dir_6 = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.Dir_8 = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.A = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.B = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.C = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.D = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.E = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.F = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.L = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.R = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.Pause = SD_ReadInt(-1, KEY_MAX - 1);
+	Gnd.KbdKeyId.Start = SD_ReadInt(-1, KEY_MAX - 1);
+
 	Gnd.RO_MouseDispMode = SD_ReadBoolean();
 
 	// app >
@@ -281,7 +323,11 @@ void ImportSaveData(void)
 
 	delete SaveData;
 
+	// app >
+
 	AntiPadBtnIdConflict();
+
+	// < app
 }
 void ExportSaveData(void)
 {
@@ -311,6 +357,21 @@ void ExportSaveData(void)
 	SD_WriteInt(Gnd.PadBtnId.R);
 	SD_WriteInt(Gnd.PadBtnId.Pause);
 	SD_WriteInt(Gnd.PadBtnId.Start);
+
+	SD_WriteInt(Gnd.KbdKeyId.Dir_2);
+	SD_WriteInt(Gnd.KbdKeyId.Dir_4);
+	SD_WriteInt(Gnd.KbdKeyId.Dir_6);
+	SD_WriteInt(Gnd.KbdKeyId.Dir_8);
+	SD_WriteInt(Gnd.KbdKeyId.A);
+	SD_WriteInt(Gnd.KbdKeyId.B);
+	SD_WriteInt(Gnd.KbdKeyId.C);
+	SD_WriteInt(Gnd.KbdKeyId.D);
+	SD_WriteInt(Gnd.KbdKeyId.E);
+	SD_WriteInt(Gnd.KbdKeyId.F);
+	SD_WriteInt(Gnd.KbdKeyId.L);
+	SD_WriteInt(Gnd.KbdKeyId.R);
+	SD_WriteInt(Gnd.KbdKeyId.Pause);
+	SD_WriteInt(Gnd.KbdKeyId.Start);
 
 	SD_WriteInt(GetMouseDispMode());
 

@@ -24,6 +24,14 @@ char *xcout(char *format, ...)
 
 	return buffer;
 }
+char *strrm(char *line, size_t extend)
+{
+	return (char *)memRealloc(line, strlen(line) + 1 + extend);
+}
+char *strr(char *line)
+{
+	return strrm(line, 0);
+}
 char *strx(char *line)
 {
 	return (char *)memClone(line, strlen(line) + 1);
@@ -121,4 +129,163 @@ char *combine(char *path1, char *path2)
 	replaceChar(path, '/', '\\');
 
 	return path;
+}
+
+char *addLine(char *line, char *addPtn)
+{
+	line = strrm(line, strlen(addPtn));
+	strcat(line, addPtn);
+	return line;
+}
+char *addChar(char *line, int chr)
+{
+	char chrLine[2];
+
+	chrLine[0] = chr;
+	chrLine[1] = '\0';
+
+	return addLine(line, chrLine);
+}
+char *insertLine(char *line, int index, char *insPtn)
+{
+	char *trailer;
+
+	errorCase(index < 0 || (int)strlen(line) < index);
+
+	trailer = strx(line + index);
+
+	line = strrm(line, strlen(insPtn));
+	strcpy(line + index, insPtn);
+	strcat(line, trailer);
+
+	memFree(trailer);
+	return line;
+}
+char *insertChar(char *line, int index, int chr)
+{
+	char insPtn[2];
+
+	insPtn[0] = chr;
+	insPtn[1] = '\0';
+
+	return insertLine(line, index, insPtn);
+}
+void reverseLine(char *line)
+{
+	char *l = line;
+	char *r = strchr(line, '\0');
+
+	if(l < r)
+	{
+		r--;
+
+		while(l < r)
+		{
+			int tmp = *l;
+
+			*l = *r;
+			*r = tmp;
+
+			l++;
+			r--;
+		}
+	}
+}
+char *thousandComma(char *line) // ret: strr(line)
+{
+	uint index;
+
+	reverseLine(line);
+
+	for(index = 3; index < strlen(line); index += 4)
+	{
+		line = insertChar(line, index, ',');
+	}
+	reverseLine(line); // •œŒ³
+	return line;
+}
+
+static char *TokPtr;
+static uchar *TokDelims;
+
+void tokinit(char *str, char *delims)
+{
+	if(str)
+	{
+		TokPtr = str;
+		memFree(TokDelims);
+		TokDelims = NULL;
+	}
+	if(delims)
+	{
+		char *p;
+
+		if(*delims)
+		{
+			if(!TokDelims)
+				TokDelims = (uchar *)memAlloc(32);
+
+			memset(TokDelims, 0x00, 32);
+
+			for(p = delims; ; p++)
+			{
+				uint delim = (uint)*p;
+
+				TokDelims[delim / 8] |= (1 << (delim % 8));
+
+				if(!delim)
+					break;
+			}
+		}
+		else
+		{
+			memFree(TokDelims);
+			TokDelims = NULL;
+		}
+	}
+}
+char *toknext(char *str, char *delims)
+{
+	char *ret;
+
+	tokinit(str, delims);
+
+	if(!TokPtr)
+		return NULL;
+
+	ret = TokPtr;
+
+	if(TokDelims)
+	{
+		char *p;
+		uint upchr;
+
+		for(p = TokPtr; ; p++)
+		{
+			upchr = (uint)*p;
+
+			if(TokDelims[upchr / 8] & (1u << (upchr % 8)))
+				break;
+		}
+		if(upchr)
+		{
+			*p = '\0';
+			p++;
+		}
+		else
+			p = NULL;
+
+		TokPtr = p;
+	}
+	else
+		TokPtr = NULL;
+
+	return ret;
+}
+char *ne_toknext(char *str, char *delims)
+{
+	char *ret = toknext(str, delims);
+
+	errorCase(!ret);
+	return ret;
 }

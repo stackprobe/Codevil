@@ -35,20 +35,20 @@ static void MixInput(int inpId, int keyId, int btnId)
 }
 void InputEachFrame(void)
 {
-	MixInput(INP_DIR_2, KEY_INPUT_DOWN, Gnd.PadBtnId.Dir_2);
-	MixInput(INP_DIR_4, KEY_INPUT_LEFT, Gnd.PadBtnId.Dir_4);
-	MixInput(INP_DIR_6, KEY_INPUT_RIGHT, Gnd.PadBtnId.Dir_6);
-	MixInput(INP_DIR_8, KEY_INPUT_UP, Gnd.PadBtnId.Dir_8);
-	MixInput(INP_A, KEY_INPUT_Z, Gnd.PadBtnId.A);
-	MixInput(INP_B, KEY_INPUT_X, Gnd.PadBtnId.B);
-	MixInput(INP_C, KEY_INPUT_C, Gnd.PadBtnId.C);
-	MixInput(INP_D, KEY_INPUT_V, Gnd.PadBtnId.D);
-	MixInput(INP_E, KEY_INPUT_A, Gnd.PadBtnId.E);
-	MixInput(INP_F, KEY_INPUT_S, Gnd.PadBtnId.F);
-	MixInput(INP_L, KEY_INPUT_D, Gnd.PadBtnId.L);
-	MixInput(INP_R, KEY_INPUT_F, Gnd.PadBtnId.R);
-	MixInput(INP_PAUSE, KEY_INPUT_SPACE, Gnd.PadBtnId.Pause);
-	MixInput(INP_START, KEY_INPUT_RETURN, Gnd.PadBtnId.Start);
+	MixInput(INP_DIR_2, Gnd.KbdKeyId.Dir_2, Gnd.PadBtnId.Dir_2);
+	MixInput(INP_DIR_4, Gnd.KbdKeyId.Dir_4, Gnd.PadBtnId.Dir_4);
+	MixInput(INP_DIR_6, Gnd.KbdKeyId.Dir_6, Gnd.PadBtnId.Dir_6);
+	MixInput(INP_DIR_8, Gnd.KbdKeyId.Dir_8, Gnd.PadBtnId.Dir_8);
+	MixInput(INP_A, Gnd.KbdKeyId.A, Gnd.PadBtnId.A);
+	MixInput(INP_B, Gnd.KbdKeyId.B, Gnd.PadBtnId.B);
+	MixInput(INP_C, Gnd.KbdKeyId.C, Gnd.PadBtnId.C);
+	MixInput(INP_D, Gnd.KbdKeyId.D, Gnd.PadBtnId.D);
+	MixInput(INP_E, Gnd.KbdKeyId.E, Gnd.PadBtnId.E);
+	MixInput(INP_F, Gnd.KbdKeyId.F, Gnd.PadBtnId.F);
+	MixInput(INP_L, Gnd.KbdKeyId.L, Gnd.PadBtnId.L);
+	MixInput(INP_R, Gnd.KbdKeyId.R, Gnd.PadBtnId.R);
+	MixInput(INP_PAUSE, Gnd.KbdKeyId.Pause, Gnd.PadBtnId.Pause);
+	MixInput(INP_START, Gnd.KbdKeyId.Start, Gnd.PadBtnId.Start);
 }
 int GetInput(int inpId)
 {

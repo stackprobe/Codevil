@@ -62,9 +62,23 @@ int SEEachFrame(void) // ret: Œø‰Ê‰¹‚ðˆ—‚µ‚½B
 
 	if(i)
 	{
-		i->HandleIndex %= SE_HANDLE_MAX;
-		SoundPlay(i->HandleList[i->HandleIndex++]);
+		switch(i->AlterCommand)
+		{
+		case 0:
+			i->HandleIndex %= SE_HANDLE_MAX;
+			SoundPlay(i->HandleList[i->HandleIndex++]);
+			break;
 
+		case 'S':
+			for(int index = 0; index < SE_HANDLE_MAX; index++)
+			{
+				SoundStop(i->HandleList[index]);
+			}
+			break;
+
+		default:
+			error();
+		}
 		return 1;
 	}
 	return 0;
@@ -79,6 +93,17 @@ void SEPlay(int seId)
 	for(int index = GetPlayList()->GetTopIndex_DIRECT(); index < GetPlayList()->GetList_DIRECT()->GetCount(); index++)
 		if(GetPlayList()->GetList_DIRECT()->GetElement(index) == i && 2 <= ++count)
 			return;
+
+	GetPlayList()->Enqueue(i);
+	GetPlayList()->Enqueue(NULL);
+}
+void SEStop(int seId)
+{
+	errorCase(seId < 0 || SE_MAX <= seId);
+
+	static SEInfo_t si = *GetSERes()->GetHandle(seId); // fixme: SEInfo_t‚ð‚µ‚ê‚Á‚Æ•¡»Bi->Handles‚Ì•¡»‚É–â‘è‚Í–³‚¢‚©B
+	SEInfo_t *i = &si;
+	i->AlterCommand = 'S';
 
 	GetPlayList()->Enqueue(i);
 	GetPlayList()->Enqueue(NULL);

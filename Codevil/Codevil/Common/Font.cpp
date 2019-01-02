@@ -58,7 +58,7 @@ FontHandle_t *CreateFontHandle(char *fontName, int fontSize, int fontThick, int 
 	// antiAliasing
 	errorCase(!m_isRange(edgeSize, 0, IMAX));
 	// italicFlag
-	
+
 	int h = CreateFontToHandle(
 		fontName,
 		fontSize,
@@ -137,4 +137,17 @@ void DrawStringByFont(int x, int y, char *str, FontHandle_t *fh, int tategakiFla
 	errorCase(!fh);
 
 	DrawStringToHandle(x, y, str, color, fh->Handle, edgeColor, tategakiFlag);
+}
+int GetDrawStringByFontWidth(char *str, FontHandle_t *fh, int tategakiFlag)
+{
+	errorCase(!str);
+	errorCase(!fh);
+
+	return GetDrawStringWidthToHandle(str, strlen(str), fh->Handle, tategakiFlag);
+}
+void DrawStringByFont_XCenter(int x, int y, char *str, FontHandle_t *fh, int tategakiFlag, int color, int edgeColor)
+{
+	x -= GetDrawStringByFontWidth(str, fh, tategakiFlag) / 2;
+
+	DrawStringByFont(x, y, str, fh, tategakiFlag, color, edgeColor);
 }

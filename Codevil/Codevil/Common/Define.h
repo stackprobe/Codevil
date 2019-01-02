@@ -37,15 +37,23 @@ typedef unsigned __int32 uint;
 typedef unsigned __int64 uint64;
 
 #define IMAX 1000000000
+#define IMAX_64 1000000000000000000i64
 #define PI     3.141592653589793
 #define ROOT_2 1.414213562373095
 
+// app >
+
 #define SCREEN_W 800
 #define SCREEN_H 600
+
+// < app
+
 #define SCREEN_CENTER_X (SCREEN_W / 2)
 #define SCREEN_CENTER_Y (SCREEN_H / 2)
 #define SCREEN_W_MAX (SCREEN_W * 5)
 #define SCREEN_H_MAX (SCREEN_H * 5)
+
+#define MONITOR_MAX 10
 
 /*
 	‰¹Šy‚ÆŒø‰Ê‰¹‚Ì‰Šúƒ{ƒŠƒ…[ƒ€
@@ -149,6 +157,15 @@ typedef struct i2D_st
 	int Y;
 }
 i2D_t;
+
+typedef struct iRect_st
+{
+	int L;
+	int T;
+	int W;
+	int H;
+}
+iRect_t;
 
 typedef struct d2D_st
 {
