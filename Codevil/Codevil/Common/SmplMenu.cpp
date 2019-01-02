@@ -313,9 +313,9 @@ endLoop:;
 		SEPlay(rndPct(50) ? SE_PAUSE_IN : SE_PAUSE_OUT);
 	}
 
-	SmplVolumeConfig("‚a‚f‚l‰¹—Ê", Gnd.MusicVolume, 0, 100, 1, 10, XXX_BGMVolumeChanged); 
+	SmplVolumeConfig("‚a‚f‚l‰¹—Ê", Gnd.MusicVolume, 0, 100, 1, 10, XXX_BGMVolumeChanged);
 
-	SmplVolumeConfig("‚r‚d‰¹—Ê", Gnd.SEVolume, 0, 100, 1, 10, XXX_SEVolumeChanged, XXX_SEVolumePulse); 
+	SmplVolumeConfig("‚r‚d‰¹—Ê", Gnd.SEVolume, 0, 100, 1, 10, XXX_SEVolumeChanged, XXX_SEVolumePulse);
 */
 
 static double SVC_ValueToRate(double value, double minval, double valRange)
