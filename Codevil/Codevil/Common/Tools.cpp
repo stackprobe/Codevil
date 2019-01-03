@@ -157,7 +157,6 @@ int isSame(autoList<uchar> *binData1, autoList<uchar> *binData2)
 	return 1;
 }
 
-// ‚à‚µ‚©‚µ‚Ä... MakeXYSpeed
 // Šp“x‚©‚ç•ûŒü ... MakeXYSpeed, angleToXY
 
 /*
