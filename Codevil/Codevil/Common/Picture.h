@@ -4,7 +4,7 @@ enum
 	P_WHITEBOX,
 	P_WHITECIRCLE,
 
-	// app >
+	// app > @ P_
 
 	// < app
 

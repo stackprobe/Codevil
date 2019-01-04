@@ -3,7 +3,7 @@ enum
 	ETC_DATSTRINGS,
 	ETC_JCHAR,
 
-	// app >
+	// app > @ ETC_
 
 	ETC_FONT_RIIT,
 	ETC_FONT_GENKAI_MINCHO,

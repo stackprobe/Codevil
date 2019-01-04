@@ -9,7 +9,7 @@ void Gnd_INIT(void)
 	Gnd.EL = new taskList();
 	Gnd.PrimaryPadId = -1;
 
-	// app >
+	// app > @ Gnd_INIT
 
 	// < app
 
@@ -51,9 +51,9 @@ void Gnd_INIT(void)
 	Gnd.KbdKeyId.Pause = KEY_INPUT_SPACE;
 	Gnd.KbdKeyId.Start = KEY_INPUT_RETURN;
 
-	Gnd.RO_MouseDispMode = 1;
+	Gnd.RO_MouseDispMode = 0;
 
-	// app >
+	// app > @ Gnd_INIT SaveData
 
 	Gnd.RO_MouseDispMode = 0;
 
@@ -63,13 +63,13 @@ void Gnd_FNLZ(void)
 {
 	delete Gnd.EL;
 
-	// app >
+	// app > @ Gnd_FNLZ
 
 	// < app
 
 	// SaveData -->
 
-	// app >
+	// app > @ Gnd_FNLZ SaveData
 
 	// < app
 }
@@ -315,7 +315,7 @@ void ImportSaveData(void)
 
 	Gnd.RO_MouseDispMode = SD_ReadBoolean();
 
-	// app >
+	// app > @ ImportSaveData
 
 	// < app
 
@@ -323,7 +323,7 @@ void ImportSaveData(void)
 
 	delete SaveData;
 
-	// app >
+	// app > @ post ImportSaveData
 
 	AntiPadBtnIdConflict();
 
@@ -375,7 +375,7 @@ void ExportSaveData(void)
 
 	SD_WriteInt(GetMouseDispMode());
 
-	// app >
+	// app > @ ExportSaveData
 
 	// < app
 

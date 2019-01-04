@@ -25,13 +25,15 @@
 
 #include <DxLib.h>
 
-// app >
+// app > @ define LOG_ENABLED
+
 /*
-// < app
 #define LOG_ENABLED 0
 /*/
 #define LOG_ENABLED 1
 //*/
+
+// < app
 
 typedef unsigned char uchar;
 typedef unsigned __int16 uint16;
@@ -43,7 +45,7 @@ typedef unsigned __int64 uint64;
 #define PI     3.141592653589793
 #define ROOT_2 1.414213562373095
 
-// app >
+// app > @ define SCREEN_WH
 
 #define SCREEN_W 800
 #define SCREEN_H 600

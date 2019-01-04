@@ -104,7 +104,7 @@ void SmplPadConfig(void)
 	*/
 	char *BTN_LIST[INP_MAX] =
 	{
-		// app >
+		// app > @ BTN_LIST
 
 		"â∫", // INP_DIR_2
 		"ç∂", // INP_DIR_4

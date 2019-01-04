@@ -31,7 +31,7 @@ static void CreateDerList(void)
 
 	AddAnimation(P_DUMMY, 0, 0, 25, 25, 2, 2); // D_DUMMY_00
 
-	// app >
+	// app > @ AddDer
 
 	// < app
 

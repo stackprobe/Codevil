@@ -2,7 +2,7 @@ enum
 {
 	MUS_DUMMY,
 
-	// app >
+	// app > @ MUS_
 
 	MUS_TITLE,
 	MUS_FIELD_01,

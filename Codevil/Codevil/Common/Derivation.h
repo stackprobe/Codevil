@@ -2,7 +2,7 @@ enum
 {
 	ENUM_RANGE(D_DUMMY_00, 4)
 
-	// app >
+	// app > @ D_
 
 	// < app
 

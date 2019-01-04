@@ -40,7 +40,7 @@ static MusicInfo_t *LoadMusic(autoList<uchar> *fileData)
 
 	switch(RC_ResId) // musId
 	{
-	// app >
+	// app > @ post LoadSound
 
 	/*
 	case MUS_xxx:

@@ -7,7 +7,7 @@ typedef struct Gnd_st
 	iRect_t Monitors[MONITOR_MAX];
 	int MonitorNum;
 
-	// app >
+	// app > @ Gnd_t
 
 	// < app
 
@@ -52,7 +52,7 @@ typedef struct Gnd_st
 
 	int RO_MouseDispMode;
 
-	// app >
+	// app > @ Gnd_t SaveData
 
 	// < app
 

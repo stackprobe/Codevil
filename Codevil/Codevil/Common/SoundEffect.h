@@ -2,7 +2,7 @@ enum
 {
 	SE_DUMMY,
 
-	// app >
+	// app > @ SE_
 
 	SE_PAUSE_IN,
 	SE_PAUSE_OUT,

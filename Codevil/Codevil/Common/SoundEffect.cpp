@@ -23,7 +23,7 @@ static SEInfo_t *LoadSE(autoList<uchar> *fileData)
 
 	switch(RC_ResId) // seId
 	{
-	// app >
+	// app > @ post LoadSound
 
 	/*
 	case SE_xxx:

@@ -1471,7 +1471,7 @@ FUNC_STATIC void AES128_Decrypt_rcbc(void *block, int size)
 	uchar rawKey[16];
 	u32 ctx[44];
 
-	// app >
+	// app > @ gen_rk
 
 #define INIT_RK() \
 	my_memset(&rk, 0x80, 16)
