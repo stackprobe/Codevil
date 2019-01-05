@@ -1,3 +1,6 @@
+/*
+	SMPL
+*/
 #include "all.h"
 
 static void DrawWall(void)
