@@ -119,7 +119,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		PE_Reset();
 	}
 
-#if 1
 	GetDefaultState(&Monitor_W, &Monitor_H, NULL, NULL, &Monitor_L, &Monitor_T);
 
 	errorCase(!m_isRange(Monitor_W, 1, IMAX));
@@ -128,32 +127,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	errorCase(!m_isRange(Monitor_T, -IMAX, IMAX));
 
 	PostSetScreenSize(Gnd.RealScreen_W, Gnd.RealScreen_H);
-#else // del
-	// 暫定？フルスクリーン向け、ウィンドウ位置調整
-	{
-		int monitor_w;
-		int monitor_h;
-		int monitor_l;
-		int monitor_t;
-		int dummy;
-
-		GetDefaultState(&monitor_w, &monitor_h, &dummy, NULL, &monitor_l, &monitor_t);
-
-		errorCase(!m_isRange(monitor_w, 1, IMAX));
-		errorCase(!m_isRange(monitor_h, 1, IMAX));
-		errorCase(!m_isRange(monitor_l, -IMAX, IMAX));
-		errorCase(!m_isRange(monitor_t, -IMAX, IMAX));
-
-		LOGPOS();
-		if(Gnd.RealScreen_W == monitor_w && Gnd.RealScreen_H == monitor_h)
-		{
-			LOGPOS();
-			SetScreenPosition(monitor_l, monitor_t);
-			LOGPOS();
-		}
-		LOGPOS();
-	}
-#endif
 
 	// app > @ INIT
 

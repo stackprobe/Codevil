@@ -196,3 +196,7 @@ d2D_t;
 
 #define m_10(value) \
 	((value) == 0 ? 1 : 0)
+
+// app > @ define
+
+// < app

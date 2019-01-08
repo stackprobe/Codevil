@@ -1,6 +1,3 @@
-/*
-	SMPL
-*/
 #include "all.h"
 
 static void DrawWall(void)
@@ -19,17 +16,17 @@ static void ReturnTitleMenu(void)
 	MusicPlay(MUS_TITLE);
 }
 
-static void SM_BGMVolumeChanged(double volume)
+static void BGMVolumeChanged(double volume)
 {
 	Gnd.MusicVolume = volume;
 	UpdateMusicVolume();
 }
-static void SM_SEVolumeChanged(double volume)
+static void SEVolumeChanged(double volume)
 {
 	Gnd.SEVolume = volume;
 	UpdateSEVolume();
 }
-static void SM_SEVolumePulse(void)
+static void SEVolumePulse(void)
 {
 	SEPlay(rndPct(50) ? SE_PAUSE_IN : SE_PAUSE_OUT);
 }
@@ -63,11 +60,11 @@ static void SettingMenu(void)
 			break;
 
 		case 2:
-			SmplVolumeConfig("‚a‚f‚l‰¹—Ê", Gnd.MusicVolume, 0, 100, 1, 10, SM_BGMVolumeChanged); 
+			SmplVolumeConfig("‚a‚f‚l‰¹—Ê", Gnd.MusicVolume, 0, 100, 1, 10, BGMVolumeChanged); 
 			break;
 
 		case 3:
-			SmplVolumeConfig("‚r‚d‰¹—Ê", Gnd.SEVolume, 0, 100, 1, 10, SM_SEVolumeChanged, SM_SEVolumePulse); 
+			SmplVolumeConfig("‚r‚d‰¹—Ê", Gnd.SEVolume, 0, 100, 1, 10, SEVolumeChanged, SEVolumePulse); 
 			break;
 
 		case 4:

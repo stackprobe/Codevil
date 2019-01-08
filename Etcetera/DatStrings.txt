@@ -1,4 +1,4 @@
-○○○タイトル○○○
-○○○製作者○○○
-(c) 20xx ○○○製作者○○○
+暫定小悪魔テンプレート用
+cerulean.charlotte
+(c) 2019 cerulean.charlotte
 %s %s
