@@ -128,13 +128,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	PostSetScreenSize(Gnd.RealScreen_W, Gnd.RealScreen_H);
 
-	// app > @ INIT
-
-	AddFontFile(ETC_FONT_RIIT, "RiiT_F.otf");
-	AddFontFile(ETC_FONT_GENKAI_MINCHO, "genkai-mincho.ttf");
-
-	// < app
-
 #if LOG_ENABLED // Œ®‚ÌŠm”F
 	{
 		char *b = na(char, 32);
@@ -143,6 +136,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		memFree(b);
 	}
 #endif
+
+	// app > @ INIT
+
+	AddFontFile(ETC_FONT_RIIT, "RiiT_F.otf");
+	AddFontFile(ETC_FONT_GENKAI_MINCHO, "genkai-mincho.ttf");
+
+	// < app
 
 	LOGPOS();
 	ProcMain();

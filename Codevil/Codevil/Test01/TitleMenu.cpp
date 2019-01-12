@@ -1,3 +1,4 @@
+// smpl
 #include "all.h"
 
 static void DrawWall(void)

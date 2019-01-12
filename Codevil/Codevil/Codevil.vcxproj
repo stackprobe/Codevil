@@ -67,7 +67,7 @@
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>C:\Dat\DxLib\3_19b\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dat\DxLib\3_20\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -78,7 +78,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Dat\DxLib\3_19b\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Dat\DxLib\3_20\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -130,10 +130,12 @@
     <ClCompile Include="Common\Stopwatch.cpp" />
     <ClCompile Include="Common\System.cpp" />
     <ClCompile Include="Common\Tools.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="ProcMain.cpp" />
-    <ClCompile Include="TitleMenu.cpp" />
+    <ClCompile Include="Test01\Game.cpp" />
+    <ClCompile Include="Test01\GameMain.cpp" />
+    <ClCompile Include="Test01\TitleMenu.cpp" />
+    <ClCompile Include="Tests\Common\FontTest.cpp" />
+    <ClCompile Include="Tests\Common\LineTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\aes128.h" />
@@ -187,11 +189,15 @@
     <ClInclude Include="Common\System.h" />
     <ClInclude Include="Common\taskList.h" />
     <ClInclude Include="Common\Tools.h" />
-    <ClInclude Include="Define.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameMain.h" />
     <ClInclude Include="ProcMain.h" />
-    <ClInclude Include="TitleMenu.h" />
+    <ClInclude Include="Test01\all.h" />
+    <ClInclude Include="Test01\Game.h" />
+    <ClInclude Include="Test01\GameMain.h" />
+    <ClInclude Include="Test01\TitleMenu.h" />
+    <ClInclude Include="Tests\all.h" />
+    <ClInclude Include="Tests\Common\all.h" />
+    <ClInclude Include="Tests\Common\FontTest.h" />
+    <ClInclude Include="Tests\Common\LineTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

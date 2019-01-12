@@ -1,7 +1,7 @@
-#include "Common\all.h"
+#pragma once
 
-#include "Define.h"
+#include "Common\all.h"
+#include "Tests\Common\all.h"
+#include "Test01\all.h"
+
 #include "ProcMain.h"
-#include "Game.h"
-#include "GameMain.h"
-#include "TitleMenu.h"

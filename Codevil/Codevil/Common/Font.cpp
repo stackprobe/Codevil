@@ -63,7 +63,7 @@ FontHandle_t *CreateFontHandle(char *fontName, int fontSize, int fontThick, int 
 		fontName,
 		fontSize,
 		fontThick,
-		antiAliasing ? DX_FONTTYPE_ANTIALIASING : DX_FONTTYPE_NORMAL,
+		DX_FONTTYPE_NORMAL | (antiAliasing ? DX_FONTTYPE_ANTIALIASING : 0) | (edgeSize ? DX_FONTTYPE_EDGE : 0),
 		-1,
 		edgeSize
 		);
