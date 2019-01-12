@@ -1,6 +1,6 @@
 #include "all.h"
 
-// Conf_* >
+// app > @ Conf_
 
 /*
 	-1 == デフォルト
@@ -11,7 +11,7 @@
 */
 int Conf_DisplayIndex = 1;
 
-// < Conf_*
+// < app
 
 void ImportConfig(void)
 {
@@ -22,11 +22,11 @@ void ImportConfig(void)
 		autoList<uchar> *fileData = readFile(confFile);
 		int rIndex = 0;
 
-		// Conf_* >
+		// app > @ LOAD Conf_
 
 		Conf_DisplayIndex = atoi_x(neReadCfgLine(fileData, rIndex));
 
-		// < Conf_*
+		// < app
 
 		{
 			char *line = neReadCfgLine(fileData, rIndex);

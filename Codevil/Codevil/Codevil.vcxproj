@@ -96,6 +96,7 @@
     <ClCompile Include="Common\Font.cpp" />
     <ClCompile Include="Common\Jammer.cpp" />
     <ClCompile Include="Common\JChar.cpp" />
+    <ClCompile Include="Common\Lines.cpp" />
     <ClCompile Include="Common\SmplMenu.cpp" />
     <ClCompile Include="Common\Line.cpp" />
     <ClCompile Include="Common\Mutex.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Common\Font.h" />
     <ClInclude Include="Common\Jammer.h" />
     <ClInclude Include="Common\JChar.h" />
+    <ClInclude Include="Common\Lines.h" />
     <ClInclude Include="Common\SmplMenu.h" />
     <ClInclude Include="Common\Line.h" />
     <ClInclude Include="Common\Mutex.h" />
@@ -164,7 +166,6 @@
     <ClInclude Include="Common\Define.h" />
     <ClInclude Include="Common\Derivation.h" />
     <ClInclude Include="Common\DrawPicture.h" />
-    <ClInclude Include="Common\endlessQueue.h" />
     <ClInclude Include="Common\Engine.h" />
     <ClInclude Include="Common\File.h" />
     <ClInclude Include="Common\FileStream.h" />

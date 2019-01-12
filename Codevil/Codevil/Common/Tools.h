@@ -2,8 +2,6 @@ int d2i(double value);
 int s2i(char *line, int minval, int maxval, int defval);
 int s2i_x(char *line, int minval, int maxval, int defval);
 int isPound(int counter);
-autoList<char *> *tokenize(char *line, char *delimiters);
-char *untokenize(autoList<char *> *tokens, char *separator);
 
 template <class Var_t>
 void t_swap(Var_t &a, Var_t &b)
@@ -23,9 +21,6 @@ void noop_i64(__int64 dummy);
 
 i2D_t makeI2D(int x, int y);
 d2D_t makeD2D(double x, double y);
-
-bitList *createBitList(void);
-void releaseBitList(bitList *bl);
 
 void my_memset(void *block, int fillValue, int size);
 int isfilled(void *block, int fillValue, int size);
