@@ -89,8 +89,10 @@
   <ItemGroup>
     <ClCompile Include="Common\aes128.cpp" />
     <ClCompile Include="Common\bmp.cpp" />
+    <ClCompile Include="Common\Compare.cpp" />
     <ClCompile Include="Common\Config.cpp" />
     <ClCompile Include="Common\Crash.cpp" />
+    <ClCompile Include="Common\Data.cpp" />
     <ClCompile Include="Common\DatStrings.cpp" />
     <ClCompile Include="Common\Etcetera.cpp" />
     <ClCompile Include="Common\Font.cpp" />
@@ -130,7 +132,7 @@
     <ClCompile Include="Common\SoundEffect.cpp" />
     <ClCompile Include="Common\Stopwatch.cpp" />
     <ClCompile Include="Common\System.cpp" />
-    <ClCompile Include="Common\Tools.cpp" />
+    <ClCompile Include="Common\GameTools2.cpp" />
     <ClCompile Include="ProcMain.cpp" />
     <ClCompile Include="Test01\Game.cpp" />
     <ClCompile Include="Test01\GameMain.cpp" />
@@ -143,8 +145,10 @@
     <ClInclude Include="Common\all.h" />
     <ClInclude Include="Common\bmp.h" />
     <ClInclude Include="Common\bitTable.h" />
+    <ClInclude Include="Common\Compare.h" />
     <ClInclude Include="Common\Config.h" />
     <ClInclude Include="Common\Crash.h" />
+    <ClInclude Include="Common\Data.h" />
     <ClInclude Include="Common\DatStrings.h" />
     <ClInclude Include="Common\Etcetera.h" />
     <ClInclude Include="Common\finalizers.h" />
@@ -189,7 +193,7 @@
     <ClInclude Include="Common\Stopwatch.h" />
     <ClInclude Include="Common\System.h" />
     <ClInclude Include="Common\taskList.h" />
-    <ClInclude Include="Common\Tools.h" />
+    <ClInclude Include="Common\GameTools2.h" />
     <ClInclude Include="ProcMain.h" />
     <ClInclude Include="Test01\all.h" />
     <ClInclude Include="Test01\Game.h" />

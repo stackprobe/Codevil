@@ -1,15 +1,28 @@
-int d2i(double value);
-int s2i(char *line, int minval, int maxval, int defval);
-int s2i_x(char *line, int minval, int maxval, int defval);
-int isPound(int counter);
-
-template <class Var_t>
-void t_swap(Var_t &a, Var_t &b)
+template <class Value_t>
+void swap(Value_t *a, Value_t *b, int size)
 {
-	Var_t tmp = a;
+	Value_t *tmp = na(Value_t, size);
+
+	memcpy(tmp, a, size);
+	memcpy(a, b, size);
+	memcpy(b, tmp, size);
+
+	memFree(tmp);
+}
+
+template <class Value_t>
+void swap(Value_t &a, Value_t &b)
+{
+	Value_t tmp = a;
 	a = b;
 	b = tmp;
 }
+
+void swapBlock(void *a, void *b, int size);
+
+int d2i(double value);
+int s2i(char *line, int minval, int maxval, int defval);
+int s2i_x(char *line, int minval, int maxval, int defval);
 
 int getZero(void);
 uint getUIZero(void);
@@ -23,8 +36,6 @@ i2D_t makeI2D(int x, int y);
 d2D_t makeD2D(double x, double y);
 
 void my_memset(void *block, int fillValue, int size);
-int isfilled(void *block, int fillValue, int size);
-int isSame(autoList<uchar> *binData1, autoList<uchar> *binData2);
 
 template <class Var_t>
 void zeroclear(Var_t *var, int num = 1)
@@ -35,7 +46,7 @@ void zeroclear(Var_t *var, int num = 1)
 template <class Var_t>
 int isallzero(Var_t *var, int num = 1)
 {
-	return isfilled(var, 0x00, num * sizeof(Var_t));
+	return isFilled(var, 0x00, num * sizeof(Var_t));
 }
 
 template <class Type_t>
