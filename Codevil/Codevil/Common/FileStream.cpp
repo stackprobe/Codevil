@@ -2,12 +2,6 @@
 
 FILE *fileOpen(char *file, char *mode)
 {
-	errorCase(m_isEmpty(file));
-#if LOG_ENABLED == 0
-	errorCase(!_strnicmp(file, "C:\\tmp\\", 7)); // ? リリース版で C:\\tmp\\* を参照している。-> 何かおかしい。
-	errorCase(!_strnicmp(file, "C:\\temp\\", 7)); // ? リリース版で C:\\temp\\* を参照している。-> 何かおかしい。
-#endif
-
 	FILE *fp = fopen(file, mode);
 
 	if(!fp) // ? 失敗
