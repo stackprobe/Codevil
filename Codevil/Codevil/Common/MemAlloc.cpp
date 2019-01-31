@@ -85,15 +85,15 @@ void memFree(void *block)
 #else
 void *memAlloc_NC(int size)
 {
-	if(size < 4)    return Stock4->GetBlock();
-	if(size < 16)   return Stock16->GetBlock();
-	if(size < 64)   return Stock64->GetBlock();
-	if(size < 256)  return Stock256->GetBlock();
-	if(size < K1)   return Stock1K->GetBlock();
-	if(size < K4)   return Stock4K->GetBlock();
-	if(size < K16)  return Stock16K->GetBlock();
-	if(size < K64)  return Stock64K->GetBlock();
-	if(size < K256) return Stock256K->GetBlock();
+	if(size <= 4)    return Stock4->GetBlock();
+	if(size <= 16)   return Stock16->GetBlock();
+	if(size <= 64)   return Stock64->GetBlock();
+	if(size <= 256)  return Stock256->GetBlock();
+	if(size <= K1)   return Stock1K->GetBlock();
+	if(size <= K4)   return Stock4K->GetBlock();
+	if(size <= K16)  return Stock16K->GetBlock();
+	if(size <= K64)  return Stock64K->GetBlock();
+	if(size <= K256) return Stock256K->GetBlock();
 
 	errorCase(HUGEBLOCK_NUMMAX <= HugeBlockCount);
 

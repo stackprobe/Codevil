@@ -25,7 +25,7 @@ void KeyEachFrame(void)
 }
 int GetKeyInput(int keyId)
 {
-	KEY_INPUT_BACK; // keyId, 他のキーは F12 で飛んでっって確認してね。
+	KEY_INPUT_BACK; // keyId, 他のキーは F12 で飛んでって確認してね。
 
 	errorCase(keyId < 0 || KEY_MAX <= keyId);
 
