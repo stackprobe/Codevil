@@ -5,7 +5,7 @@ class MBStock
 private:
 	uchar *Cluster;
 	uchar **StockList;
-	uchar *GivenList;
+	uchar *GaveList;
 	int StockCount;
 	int BlockSize;
 	MBStock *Next;
@@ -47,7 +47,7 @@ LOG("[MBS.ctor] %d\n", blockSize);
 
 		this->Cluster = (uchar *)REAL_memAlloc(CLUSTER_SIZE);
 		this->StockList = (uchar **)REAL_memAlloc(stockCount * sizeof(uchar *));
-		this->GivenList = (uchar *)REAL_memAlloc(stockCount);
+		this->GaveList = (uchar *)REAL_memAlloc(stockCount);
 		this->StockCount = stockCount;
 		this->BlockSize = blockSize;
 		this->Next = NULL;
@@ -55,7 +55,7 @@ LOG("[MBS.ctor] %d\n", blockSize);
 		for(int index = 0; index < stockCount; index++)
 		{
 			this->StockList[index] = this->Index2Block(index);
-			this->GivenList[index] = 0;
+			this->GaveList[index] = 0;
 		}
 	}
 	MBStock(const MBStock &source)
@@ -75,7 +75,7 @@ LOG("[MBS.ctor] %d\n", blockSize);
 		{
 			this->StockCount--;
 			block = this->StockList[this->StockCount];
-			this->GivenList[this->Block2Index(block)] = 1;
+			this->GaveList[this->Block2Index(block)] = 1;
 		}
 		else
 		{
@@ -86,41 +86,41 @@ LOG("[MBS.ctor] %d\n", blockSize);
 		}
 		return (void *)block;
 	}
-	int IsGivenBlock(void *v_block, int tryTake)
+	int IsGaveBlock(void *v_block, int tryTake)
 	{
 		uchar *block = (uchar *)v_block;
 
 		if(block < this->Cluster)
-			goto notGiven;
+			goto notGave;
 
 		if(this->Cluster + CLUSTER_SIZE <= block)
-			goto notGiven;
+			goto notGave;
 
 		int index = this->Block2Index(block);
 
-		if(this->GivenList[index] == 0) // ? 貸し出し中ではない。
-			error(); // goto notGiven;
+		if(this->GaveList[index] == 0) // ? 貸し出し中ではない。
+			error(); // goto notGave;
 
 		if(tryTake)
 		{
 			this->StockList[this->StockCount] = block;
 			this->StockCount++;
-			this->GivenList[this->Block2Index(block)] = 0;
+			this->GaveList[this->Block2Index(block)] = 0;
 		}
 		return 1;
 
-notGiven:
+notGave:
 		if(this->Next)
-			return this->Next->IsGivenBlock(v_block, tryTake);
+			return this->Next->IsGaveBlock(v_block, tryTake);
 
 		return 0;
 	}
-	int IsGivenBlock(void *v_block)
+	int IsGaveBlock(void *v_block)
 	{
-		return this->IsGivenBlock(v_block, 0);
+		return this->IsGaveBlock(v_block, 0);
 	}
 	int TryTakeBlock(void *v_block)
 	{
-		return this->IsGivenBlock(v_block, 1);
+		return this->IsGaveBlock(v_block, 1);
 	}
 };

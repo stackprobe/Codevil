@@ -111,15 +111,15 @@ void *memRealloc(void *block, int size)
 
 	int bSize = 0;
 
-	     if(Stock4->IsGivenBlock(block))    bSize = 4;
-	else if(Stock16->IsGivenBlock(block))   bSize = 16;
-	else if(Stock64->IsGivenBlock(block))   bSize = 64;
-	else if(Stock256->IsGivenBlock(block))  bSize = 256;
-	else if(Stock1K->IsGivenBlock(block))   bSize = K1;
-	else if(Stock4K->IsGivenBlock(block))   bSize = K4;
-	else if(Stock16K->IsGivenBlock(block))  bSize = K16;
-	else if(Stock64K->IsGivenBlock(block))  bSize = K64;
-	else if(Stock256K->IsGivenBlock(block)) bSize = K256;
+	     if(Stock4->IsGaveBlock(block))    bSize = 4;
+	else if(Stock16->IsGaveBlock(block))   bSize = 16;
+	else if(Stock64->IsGaveBlock(block))   bSize = 64;
+	else if(Stock256->IsGaveBlock(block))  bSize = 256;
+	else if(Stock1K->IsGaveBlock(block))   bSize = K1;
+	else if(Stock4K->IsGaveBlock(block))   bSize = K4;
+	else if(Stock16K->IsGaveBlock(block))  bSize = K16;
+	else if(Stock64K->IsGaveBlock(block))  bSize = K64;
+	else if(Stock256K->IsGaveBlock(block)) bSize = K256;
 	else
 	{
 		int index = GetHugeBlockIndex(block);

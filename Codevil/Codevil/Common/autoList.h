@@ -136,9 +136,9 @@ public:
 			errorCase(this->ListSize != this->Count); // 2bs
 
 			if(this->ListSize < 16)
-				this->ListSize += 2;
+				this->ListSize += 4;
 			else
-				this->ListSize *= 2;
+				this->ListSize *= 4;
 
 			errorCase(this->ListSize < this->Count + 1); // 2bs
 			errorCase(IMAX / sizeof(Element_t) < this->ListSize);
