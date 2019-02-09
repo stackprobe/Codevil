@@ -49,7 +49,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		APP_TEMP_DIR_UUID は shared_uuid
 	*/
 	{
-		ProcMtxHdl = mutexOpen("{c808da96-120f-4de5-846a-8c1c120b4a69}"); // shared_uuid@g -- 全ゲーム同時プレイ禁止のため、global指定
+		ProcMtxHdl = mutexOpen("{c808da96-120f-4de5-846a-8c1c120b4a69}"); // shared_uuid@g -- 全ゲーム同時プレイ禁止のため、@g(global)指定
 
 		if(!waitForMillis(ProcMtxHdl, 0))
 		{
