@@ -16,3 +16,7 @@ void addCwd(char *dir);
 void unaddCwd(void);
 
 char *getAppTempDir(void);
+
+__int64 getFileSizeFP(FILE *fp);
+__int64 getFileSizeFPSS(FILE *fp);
+__int64 getFileSize(char *file);

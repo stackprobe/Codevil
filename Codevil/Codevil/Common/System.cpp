@@ -115,3 +115,13 @@ __int64 GetCurrTime(void)
 	lastTime = currTime;
 	return currTime;
 }
+
+void execute(char *command)
+{
+	system(command);
+}
+void execute_x(char *command)
+{
+	execute(command);
+	memFree(command);
+}

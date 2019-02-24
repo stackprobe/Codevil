@@ -215,7 +215,7 @@ void writeBmpFile(char *file, autoTable<uint> *bmp)
 {
 	autoList<uchar> *fileData = new autoList<uchar>();
 	writeBmpFile(fileData, bmp);
-	writeFile_cx(file, fileData);
+	writeAllBytes_cx(file, fileData);
 }
 void writeBmpFile_cx(char *file, autoTable<uint> *bmp)
 {

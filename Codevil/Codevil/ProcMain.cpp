@@ -2,7 +2,7 @@
 
 void ProcMain(void)
 {
-	//TitleMenu();
+	TitleMenu();
 	//FontTest_Test01();
-	LineTest_Test01();
+	//LineTest_Test01();
 }

@@ -28,7 +28,7 @@ void AddFontFile(int etcId, char *localFile)
 
 	{
 		autoList<uchar> *fileData = GetEtcRes()->GetHandle(etcId);
-		writeFile(file, fileData);
+		writeAllBytes(file, fileData);
 	}
 
 	GetEtcRes()->UnloadAllHandle(); // ‘e‘åƒSƒ~ŠJ•ú

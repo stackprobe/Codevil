@@ -255,7 +255,7 @@ void ImportSaveData(void)
 		LOG("セーブデータファイル無し\n");
 		return;
 	}
-	SaveData = readFile(SAVE_FILE);
+	SaveData = readAllBytes(SAVE_FILE);
 
 #if LOG_ENABLED == 0
 	if(!Jammer(SaveData, 0)) // ? セーブデータ破損
@@ -383,5 +383,5 @@ void ExportSaveData(void)
 	errorCase(!Jammer(SaveData, 1));
 #endif
 
-	writeFile_cx(SAVE_FILE, SaveData);
+	writeAllBytes_cx(SAVE_FILE, SaveData);
 }

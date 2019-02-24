@@ -30,3 +30,6 @@ char *nextArg(void);
 
 int IsWindowActive(void);
 __int64 GetCurrTime(void);
+
+void execute(char *command);
+void execute_x(char *command);

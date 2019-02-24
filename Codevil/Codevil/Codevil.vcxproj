@@ -160,7 +160,6 @@
     <ClInclude Include="Common\Line.h" />
     <ClInclude Include="Common\Mutex.h" />
     <ClInclude Include="Common\SubScreen.h" />
-    <ClInclude Include="Common\System2.h" />
     <ClInclude Include="all.h" />
     <ClInclude Include="Common\autoList.h" />
     <ClInclude Include="Common\autoQueue.h" />
@@ -192,6 +191,7 @@
     <ClInclude Include="Common\SoundEffect.h" />
     <ClInclude Include="Common\Stopwatch.h" />
     <ClInclude Include="Common\System.h" />
+    <ClInclude Include="Common\System2.h" />
     <ClInclude Include="Common\taskList.h" />
     <ClInclude Include="Common\GameTools2.h" />
     <ClInclude Include="ProcMain.h" />

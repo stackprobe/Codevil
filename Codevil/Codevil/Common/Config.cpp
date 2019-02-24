@@ -19,7 +19,7 @@ void ImportConfig(void)
 
 	if(accessible(confFile))
 	{
-		autoList<uchar> *fileData = readFile(confFile);
+		autoList<uchar> *fileData = readAllBytes(confFile);
 		int rIndex = 0;
 
 		// app > @ LOAD Conf_

@@ -159,10 +159,10 @@
     <ClCompile Include="Common\System.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Common\System2.cpp">
+    <ClCompile Include="Common\taskList.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Common\taskList.cpp">
+    <ClCompile Include="Common\System2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -347,10 +347,10 @@
     <ClInclude Include="Common\System.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Common\System2.h">
+    <ClInclude Include="Common\taskList.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Common\taskList.h">
+    <ClInclude Include="Common\System2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
