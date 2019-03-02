@@ -183,9 +183,7 @@ static void SD_WriteBitList(bitList *src)
 	{
 		buff->AddElement(src->RefBit(index) ? '1' : '0');
 	}
-	buff->AddElement('\0');
-	SD_WriteLine_x(buff->UnbindBuffer());
-	delete buff;
+	SD_WriteLine_x(unbindBlock2Line(buff));
 }
 static void SD_WriteLines(autoList<char *> *lines)
 {

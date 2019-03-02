@@ -1,5 +1,7 @@
 #include "all.h"
 
+// ---- getFileList ----
+
 /*
 	unsigned attrib;
 		_A_ARCH
@@ -70,6 +72,22 @@ void updateFindData(char *path)
 }
 
 // ----
+
+char *combine(char *path1, char *path2)
+{
+	char *path;
+
+	if(path1[0] && path1[1] == ':' && path1[2] == '\0')
+		path = xcout("%s.\\%s", path1, path2);
+	else
+		path = xcout("%s\\%s", path1, path2);
+
+	replaceChar(path, '\\', '/');
+	path = replacePtnLoop(path, "//", "/");
+	replaceChar(path, '/', '\\');
+
+	return path;
+}
 
 static int Game_mkdir(char *dir) // ret: ? Ž¸”s
 {

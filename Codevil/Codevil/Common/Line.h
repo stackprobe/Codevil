@@ -25,10 +25,8 @@ __int64 atoi64_x(char *line);
 char *mbs_strrchr(char *str, int chr);
 
 void replaceChar(char *str, int srcChr, int destChr);
-char *replaceLine(char *str, char *srcPtn, char *destPtn, int ignoreCase = 0);
-char *replaceLineLoop(char *str, char *srcPtn, char *destPtn, int ignoreCase = 0, int loopMax = 20);
-
-char *combine(char *path1, char *path2);
+char *replacePtn(char *str, char *srcPtn, char *destPtn, int ignoreCase = 0);
+char *replacePtnLoop(char *str, char *srcPtn, char *destPtn, int ignoreCase = 0, int loopMax = 30);
 
 char *addLine(char *line, char *addPtn);
 char *addChar(char *line, int chr);
@@ -36,6 +34,12 @@ char *insertLine(char *line, int index, char *insPtn);
 char *insertChar(char *line, int index, int chr);
 void reverseLine(char *line);
 char *thousandComma(char *line);
+
+void trimLead(char *line, int delimChr);
+void trimTrail(char *line, int delimChr);
+void trimSequ(char *line, int delimChr);
+void trim(char *line, int delimChr);
+void trimEdge(char *line, int delimChr);
 
 void tokinit(char *str, char *delims);
 char *toknext(char *str, char *delims);

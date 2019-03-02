@@ -1,9 +1,13 @@
+// ---- getFileList ----
+
 extern struct _finddata_t lastFindData;
 
 void getFileList(char *dir, autoList<char *> *subDirs, autoList<char *> *files);
 void updateFindData(char *path);
 
 // ----
+
+char *combine(char *path1, char *path2);
 
 int accessible(char *path);
 char *refLocalPath(char *path);

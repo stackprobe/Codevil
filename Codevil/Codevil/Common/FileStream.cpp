@@ -110,9 +110,7 @@ char *readLine(FILE *fp, int lenmax)
 		}
 		lineBuff->AddElement(chr);
 	}
-	lineBuff->AddElement('\0');
-	line = (char *)lineBuff->UnbindBuffer();
-	delete lineBuff;
+	line = unbindBlock2Line(lineBuff);
 
 	if(line[0] == '\0' && chr == EOF)
 	{
@@ -195,11 +193,7 @@ char *readLine(autoList<uchar> *fileData, int &rIndex)
 		delete line;
 		return NULL;
 	}
-	line->AddElement('\0');
-
-	char *result = line->UnbindBuffer();
-	delete line;
-	return result;
+	return unbindBlock2Line(line);
 }
 char *neReadLine(autoList<uchar> *fileData, int &rIndex)
 {

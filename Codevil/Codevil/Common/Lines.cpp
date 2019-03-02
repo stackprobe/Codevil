@@ -14,15 +14,11 @@ autoList<char *> *tokenize(char *line, char *delimiters)
 				break;
 
 		if(*d)
-		{
-			token->AddElement('\0');
-			tokens->AddElement(token->UnbindBuffer());
-		}
+			tokens->AddElement(unbindBlock2Line_NR(token));
 		else
 			token->AddElement(*p);
 	}
-	token->AddElement('\0');
-	tokens->AddElement(token->UnbindBuffer());
+	tokens->AddElement(unbindBlock2Line_NR(token));
 
 	delete token;
 	return tokens;
@@ -39,8 +35,5 @@ char *untokenize(autoList<char *> *tokens, char *separator)
 		char *token = tokens->GetElement(index);
 		buffer->AddElements(token, strlen(token));
 	}
-	buffer->AddElement('\0');
-	char *ret = buffer->UnbindBuffer();
-	delete buffer;
-	return ret;
+	return unbindBlock2Line(buffer);
 }

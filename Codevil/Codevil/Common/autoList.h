@@ -50,7 +50,7 @@ public:
 
 		return list_ret;
 	}
-	autoList<Element_t> *Ecdysis()
+	autoList<Element_t> *Molt()
 	{
 		autoList<Element_t> *list_ret = new autoList<Element_t>();
 
@@ -381,3 +381,14 @@ void releaseList(autoList<Element_t> *list, void (*func)(Element_t e))
 	list->CallAllElement(func);
 	delete list;
 }
+
+template <class Element_t>
+Element_t *unbindBlock(autoList<Element_t> *list)
+{
+	Element_t *block = list->UnbindBuffer();
+	delete list;
+	return block;
+}
+
+char *unbindBlock2Line(autoList<char> *list);
+char *unbindBlock2Line_NR(autoList<char> *list);
