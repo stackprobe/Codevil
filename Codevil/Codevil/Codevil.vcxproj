@@ -96,6 +96,7 @@
     <ClCompile Include="Common\Data.cpp" />
     <ClCompile Include="Common\DatStrings.cpp" />
     <ClCompile Include="Common\Etcetera.cpp" />
+    <ClCompile Include="Common\FileStreamData.cpp" />
     <ClCompile Include="Common\Font.cpp" />
     <ClCompile Include="Common\Jammer.cpp" />
     <ClCompile Include="Common\JChar.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Common\Data.h" />
     <ClInclude Include="Common\DatStrings.h" />
     <ClInclude Include="Common\Etcetera.h" />
+    <ClInclude Include="Common\FileStreamData.h" />
     <ClInclude Include="Common\finalizers.h" />
     <ClInclude Include="Common\Font.h" />
     <ClInclude Include="Common\Jammer.h" />

@@ -13,6 +13,7 @@
 #include "bitTable.h"
 #include "File.h"
 #include "FileStream.h"
+#include "FileStreamData.h"
 #include "MBStock.h"
 #include "Resource.h"
 #include "Engine.h"
