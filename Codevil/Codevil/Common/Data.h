@@ -21,6 +21,7 @@ void swap(Value_t &a, Value_t &b)
 void swapBlock(void *a, void *b, int size);
 
 int d2i(double value);
+__int64 d2i64(double value);
 int s2i(char *line, int minval, int maxval, int defval);
 int s2i_x(char *line, int minval, int maxval, int defval);
 

@@ -9,6 +9,10 @@ int d2i(double value)
 {
 	return (int)(value + (value < 0.0 ? -0.5 : 0.5));
 }
+__int64 d2i64(double value)
+{
+	return (__int64)(value + (value < 0.0 ? -0.5 : 0.5));
+}
 int s2i(char *line, int minval, int maxval, int defval)
 {
 	if(m_isEmpty(line) || !strchr("-0123456789", *line))
