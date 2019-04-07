@@ -2,6 +2,7 @@
 
 int SmplMenu_Color = -1;
 int SmplMenu_BorderColor = -1;
+int SmplMenu_WallColor = -1;
 int SmplMenu_WallPicId = -1;
 double SmplMenu_WallCurtain = 0.0;
 int SmplMenu_X = 16;
@@ -39,6 +40,9 @@ int SmplMenu(char *menuTitle, char **menuItems, int selectMax, int selectIndex)
 		selectIndex %= selectMax;
 
 		DrawCurtain();
+
+		if(SmplMenu_WallColor != -1)
+			DrawBox(0, 0, SCREEN_W, SCREEN_H, SmplMenu_WallColor, 1);
 
 		if(SmplMenu_WallPicId != -1)
 		{
@@ -245,6 +249,7 @@ void SmplWindowSizeConfig(void)
 		"1800 x 1350",
 		"フルスクリーン",
 		"フルスクリーン (縦横比維持)",
+		"フルスクリーン (黒背景)",
 		"戻る",
 	};
 
@@ -285,6 +290,27 @@ void SmplWindowSizeConfig(void)
 			break;
 
 		case 13:
+			{
+				int w = Monitor_W;
+				int h = (SCREEN_H * Monitor_W) / SCREEN_W;
+
+				if(Monitor_H < h)
+				{
+					h = Monitor_H;
+					w = (SCREEN_W * Monitor_H) / SCREEN_H;
+
+					errorCase(Monitor_W < w);
+				}
+				SetScreenSize(Monitor_W, Monitor_H);
+
+				Gnd.RealScreenDraw_L = (Monitor_W - w) / 2;
+				Gnd.RealScreenDraw_T = (Monitor_H - h) / 2;
+				Gnd.RealScreenDraw_W = w;
+				Gnd.RealScreenDraw_H = h;
+			}
+			break;
+
+		case 14:
 			goto endLoop;
 
 		default:

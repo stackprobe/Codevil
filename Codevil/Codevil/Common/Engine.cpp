@@ -41,7 +41,19 @@ void EachFrame(void)
 
 		// app > @ draw screen
 
-		errorCase(DrawExtendGraph(0, 0, Gnd.RealScreen_W, Gnd.RealScreen_H, GetHandle(Gnd.MainScreen), 0)); // ? Ž¸”s
+		if(Gnd.RealScreenDraw_W == -1)
+		{
+			errorCase(DrawExtendGraph(0, 0, Gnd.RealScreen_W, Gnd.RealScreen_H, GetHandle(Gnd.MainScreen), 0)); // ? Ž¸”s
+		}
+		else
+		{
+			errorCase(DrawBox(0, 0, Gnd.RealScreen_W, Gnd.RealScreen_H, GetColor(0, 0, 0), 1)); // ? Ž¸”s
+			errorCase(DrawExtendGraph(
+				Gnd.RealScreenDraw_L,
+				Gnd.RealScreenDraw_T,
+				Gnd.RealScreenDraw_L + Gnd.RealScreenDraw_W,
+				Gnd.RealScreenDraw_T + Gnd.RealScreenDraw_H, GetHandle(Gnd.MainScreen), 0)); // ? Ž¸”s
+		}
 
 		// < app
 	}

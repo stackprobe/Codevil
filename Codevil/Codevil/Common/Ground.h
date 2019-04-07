@@ -16,6 +16,11 @@ typedef struct Gnd_st
 	int RealScreen_W;
 	int RealScreen_H;
 
+	int RealScreenDraw_L;
+	int RealScreenDraw_T;
+	int RealScreenDraw_W; // -1 == RealScreenDraw_LTWH ïségóp
+	int RealScreenDraw_H;
+
 	/*
 		âπó 
 		0.0 - 1.0

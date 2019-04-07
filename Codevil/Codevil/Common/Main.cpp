@@ -205,6 +205,8 @@ void SetScreenSize(int w, int h)
 	m_range(w, SCREEN_W, SCREEN_W_MAX);
 	m_range(h, SCREEN_H, SCREEN_H_MAX);
 
+	Gnd.RealScreenDraw_W = -1; // –³Œø‰»
+
 	if(Gnd.RealScreen_W != w || Gnd.RealScreen_H != h)
 	{
 		Gnd.RealScreen_W = w;

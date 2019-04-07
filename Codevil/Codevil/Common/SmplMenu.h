@@ -1,5 +1,6 @@
 extern int SmplMenu_Color;
 extern int SmplMenu_BorderColor;
+extern int SmplMenu_WallColor;
 extern int SmplMenu_WallPicId;
 extern double SmplMenu_WallCurtain;
 extern int SmplMenu_X;

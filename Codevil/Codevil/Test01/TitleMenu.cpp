@@ -94,6 +94,8 @@ void TitleMenu(void)
 	};
 	int selectIndex = 0;
 
+	SmplMenu_WallColor = GetColor(0, 0, 64); // test
+
 	for(; ; )
 	{
 		selectIndex = SmplMenu("Codevil", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
