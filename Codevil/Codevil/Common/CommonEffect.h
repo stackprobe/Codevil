@@ -17,7 +17,7 @@ typedef struct CommonEffectExtra_st
 	int IgnoreCamera;
 	int BlendAddOn;
 
-	// wrapped by CEE_* -->
+	// change by CEE_*() -->
 
 	int BrightOn;
 	double Bright_R;

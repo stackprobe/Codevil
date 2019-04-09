@@ -98,7 +98,7 @@ typedef struct PrintExtra_st
 	taskList *TL;
 	int Color;
 
-	// wrapped by PE_* -->
+	// change by PE_*() -->
 
 	int Border; // 0 == –³Œø
 	int BorderColor;

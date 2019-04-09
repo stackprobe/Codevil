@@ -7,7 +7,7 @@ typedef struct DrawPicExtra_st
 	int IntPosOn;
 	int IgnoreError;
 
-	// wrapped by DPE_* -->
+	// change by DPE_*() -->
 
 	double A;
 	int AlphaOn;
