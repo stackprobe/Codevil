@@ -26,4 +26,5 @@ SEInfo_t;
 int SEEachFrame(void);
 void SEPlay(int seId);
 void SEStop(int seId);
+void SEPlayLoop(int seId);
 void UpdateSEVolume(void);

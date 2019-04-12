@@ -76,6 +76,10 @@ int SEEachFrame(void) // ret: 効果音を処理した。
 			}
 			break;
 
+		case 'L':
+			SoundPlay(i->HandleList[0], 0);
+			break;
+
 		default:
 			error();
 		}
@@ -97,16 +101,28 @@ void SEPlay(int seId)
 	GetPlayList()->Enqueue(i);
 	GetPlayList()->Enqueue(NULL);
 }
-void SEStop(int seId)
+static void DoAlterCommand(int seId, int alterCommand)
 {
 	errorCase(seId < 0 || SE_MAX <= seId);
 
-	static SEInfo_t si = *GetSERes()->GetHandle(seId); // fixme: SEInfo_tをしれっと複製。i->Handlesの複製に問題は無いか。
-	SEInfo_t *i = &si;
-	i->AlterCommand = 'S';
+	static SEInfo_t sis[16]; // 長さ == 同時に処理できる個数
+	static int sisi = 0;
+
+	SEInfo_t *i = sis + sisi;
+	sisi = (sisi + 1) % lengthof(sis);
+	*i = *GetSERes()->GetHandle(seId); // fixme: SEInfo_t の複製 <-- 問題無いか？
+	i->AlterCommand = alterCommand;
 
 	GetPlayList()->Enqueue(i);
 	GetPlayList()->Enqueue(NULL);
+}
+void SEStop(int seId)
+{
+	DoAlterCommand(seId, 'S');
+}
+void SEPlayLoop(int seId)
+{
+	DoAlterCommand(seId, 'L');
 }
 void UpdateSEVolume(void)
 {
