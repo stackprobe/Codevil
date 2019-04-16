@@ -2,7 +2,7 @@
 
 static autoList<uchar> *LoadFileData(autoList<uchar> *fileData)
 {
-	return fileData->Molt();
+	return fileData->Eject();
 }
 static void UnloadFileData(autoList<uchar> *fileData)
 {
