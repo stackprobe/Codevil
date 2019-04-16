@@ -1,8 +1,8 @@
-// app > @ Conf_
+// Ý’è€–Ú >
 
 extern int Conf_DisplayIndex;
 
-// < app
+// < Ý’è€–Ú
 
 void ImportConfig(void);
 char *neReadCfgLine(autoList<uchar> *fileData, int &rIndex);
