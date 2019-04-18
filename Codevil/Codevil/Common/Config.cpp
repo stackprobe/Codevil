@@ -13,7 +13,7 @@ int Conf_DisplayIndex = 1;
 
 // < Ý’è€–Ú
 
-void ImportConfig(void)
+void LoadConfig(void)
 {
 	char *confFile = "Config.conf";
 

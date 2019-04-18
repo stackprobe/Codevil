@@ -70,7 +70,7 @@ extern Gnd_t Gnd;
 void Gnd_INIT(void);
 void Gnd_FNLZ(void);
 
-void ImportSaveData(void);
-void ExportSaveData(void);
+void LoadFromDatFile(void);
+void SaveToDatFile(void);
 
 void UnassignAllPadBtnId(void);
