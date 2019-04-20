@@ -68,6 +68,17 @@ i2D_t makeI2D(int x, int y)
 
 	return pos;
 }
+iRect_t makeIRect(int l, int t, int w, int h)
+{
+	iRect_t rect;
+
+	rect.L = l;
+	rect.T = t;
+	rect.W = w;
+	rect.H = h;
+
+	return rect;
+}
 d2D_t makeD2D(double x, double y)
 {
 	d2D_t pos;

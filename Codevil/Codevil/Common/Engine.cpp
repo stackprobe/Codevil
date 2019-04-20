@@ -35,6 +35,10 @@ void EachFrame(void)
 	Gnd.EL->ExecuteAllTask();
 	CurtainEachFrame();
 
+	// app > @ before draw screen
+
+	// < app
+
 	if(Gnd.MainScreen && CurrDrawScreenHandle == GetHandle(Gnd.MainScreen))
 	{
 		ChangeDrawScreen(DX_SCREEN_BACK);

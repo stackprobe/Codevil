@@ -6,6 +6,8 @@ enum
 
 	// app > @ P_
 
+	P_TITLE_WALL,
+
 	// < app
 
 	P_MAX, // num of member

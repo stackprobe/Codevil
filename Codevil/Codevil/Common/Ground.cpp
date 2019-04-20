@@ -202,6 +202,7 @@ static void SD_WriteLines_x(autoList<char *> *lines)
 	releaseList(lines, (void (*)(char *))memFree);
 }
 
+// パッド
 static int *PPadBtns[] =
 {
 	&Gnd.PadBtnId.Dir_8,
@@ -245,6 +246,53 @@ void UnassignAllPadBtnId(void)
 	for(int index = 0; index < lengthof(PPadBtns); index++)
 	{
 		*PPadBtns[index] = -1;
+	}
+}
+
+// キーボード
+static int *PKbdKeys[] =
+{
+	&Gnd.KbdKeyId.Dir_8,
+	&Gnd.KbdKeyId.Dir_2,
+	&Gnd.KbdKeyId.Dir_4,
+	&Gnd.KbdKeyId.Dir_6,
+	&Gnd.KbdKeyId.A,
+	&Gnd.KbdKeyId.B,
+	&Gnd.KbdKeyId.C,
+	&Gnd.KbdKeyId.D,
+	&Gnd.KbdKeyId.E,
+	&Gnd.KbdKeyId.F,
+	&Gnd.KbdKeyId.L,
+	&Gnd.KbdKeyId.R,
+	&Gnd.KbdKeyId.Pause,
+	&Gnd.KbdKeyId.Start,
+};
+static void AntiKbdKeyIdConflict(void)
+{
+	/*
+		重複して割り当てられていた場合、両方 -1 にする。
+	*/
+	for(int index = 1; index < lengthof(PKbdKeys); index++)
+	{
+		for(int ndx = 0; ndx < index; ndx++)
+		{
+			if(*PKbdKeys[index] == *PKbdKeys[ndx])
+			{
+				*PKbdKeys[index] = -1;
+				*PKbdKeys[ndx] = -1;
+				break;
+			}
+		}
+	}
+}
+void UnassignAllKbdKeyId(void)
+{
+	/*
+		全て割り当てナシにする。
+	*/
+	for(int index = 0; index < lengthof(PKbdKeys); index++)
+	{
+		*PKbdKeys[index] = -1;
 	}
 }
 
@@ -329,6 +377,7 @@ void LoadFromDatFile(void)
 	// app > @ post LoadFromDatFile
 
 	AntiPadBtnIdConflict();
+//	AntiKbdKeyIdConflict();
 
 	// < app
 }

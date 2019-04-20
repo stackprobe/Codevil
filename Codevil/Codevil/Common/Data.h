@@ -34,6 +34,7 @@ void noop_ui(uint dummy);
 void noop_i64(__int64 dummy);
 
 i2D_t makeI2D(int x, int y);
+iRect_t makeIRect(int l, int t, int w, int h);
 d2D_t makeD2D(double x, double y);
 
 void my_memset(void *block, int fillValue, int size);

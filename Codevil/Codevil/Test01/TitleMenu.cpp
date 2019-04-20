@@ -4,7 +4,8 @@
 static void DrawWall(void)
 {
 	DrawCurtain();
-	DrawRect(P_WHITEBOX, 100, 100, SCREEN_W - 200, SCREEN_H - 200);
+//	DrawRect(P_WHITEBOX, 100, 100, SCREEN_W - 200, SCREEN_H - 200);
+	DrawRect(P_TITLE_WALL, 0, 0, SCREEN_W, SCREEN_H);
 }
 
 static void LeaveTitleMenu(void)
@@ -94,7 +95,8 @@ void TitleMenu(void)
 	};
 	int selectIndex = 0;
 
-	SmplMenu_WallColor = GetColor(0, 0, 64); // test
+//	SmplMenu_WallColor = GetColor(0, 0, 64); // test
+	SmplMenu_WallPicId = P_TITLE_WALL;
 
 	for(; ; )
 	{
