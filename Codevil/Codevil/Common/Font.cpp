@@ -10,13 +10,14 @@ static char *GetFontDir(void)
 
 	if(!dir)
 	{
-		dir = combine(getAppTempDir(), "Font");
+		dir = makeTempDir();
 		createDir(dir);
 	}
 	return dir;
 }
 static void RemoveAllFontFile(void)
 {
+LOGPOS(); // test
 	while(FontFileList->GetCount())
 	{
 		errorCase(!RemoveFontResourceEx(FontFileList->UnaddElement(), FR_PRIVATE, NULL)); // ? Ž¸”s
@@ -40,6 +41,7 @@ void AddFontFile(int etcId, char *localFile)
 	if(!FontFileList)
 	{
 		FontFileList = new autoList<char *>();
+		GetEndProcFinalizers()->AddFunc(ReleaseAllFontHandle);
 		GetFinalizers()->AddFunc(RemoveAllFontFile);
 	}
 	FontFileList->AddElement(file);
@@ -90,7 +92,7 @@ void ReleaseFontHandle(FontHandle_t *fh)
 	memFree(fh);
 }
 
-// ---- GetFontHandle ----
+// <-- cdtor
 
 static oneObject(autoList<FontHandle_t *>, new autoList<FontHandle_t *>(), GetFontHandleList);
 
@@ -123,6 +125,7 @@ found:
 }
 void ReleaseAllFontHandle(void)
 {
+LOGPOS(); // test
 	while(GetFontHandleList()->GetCount())
 	{
 		ReleaseFontHandle(GetFontHandleList()->UnaddElement());

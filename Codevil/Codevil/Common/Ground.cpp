@@ -61,6 +61,7 @@ void Gnd_INIT(void)
 }
 void Gnd_FNLZ(void)
 {
+LOGPOS(); // test
 	delete Gnd.EL;
 
 	// app > @ Gnd_FNLZ

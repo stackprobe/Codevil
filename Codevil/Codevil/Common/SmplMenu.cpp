@@ -272,18 +272,18 @@ void SmplWindowSizeConfig(void)
 		case 8: SetScreenSize(1600, 1200); break;
 		case 9: SetScreenSize(1700, 1275); break;
 		case 10: SetScreenSize(1800, 1350); break;
-		case 11: SetScreenSize(Monitor_W, Monitor_H); break;
+		case 11: SetScreenSize(Gnd.MonitorRect.W, Gnd.MonitorRect.H); break;
 		case 12:
 			{
-				int w = Monitor_W;
-				int h = (SCREEN_H * Monitor_W) / SCREEN_W;
+				int w = Gnd.MonitorRect.W;
+				int h = (SCREEN_H * Gnd.MonitorRect.W) / SCREEN_W;
 
-				if(Monitor_H < h)
+				if(Gnd.MonitorRect.H < h)
 				{
-					h = Monitor_H;
-					w = (SCREEN_W * Monitor_H) / SCREEN_H;
+					h = Gnd.MonitorRect.H;
+					w = (SCREEN_W * Gnd.MonitorRect.H) / SCREEN_H;
 
-					errorCase(Monitor_W < w);
+					errorCase(Gnd.MonitorRect.W < w);
 				}
 				SetScreenSize(w, h);
 			}
@@ -291,20 +291,20 @@ void SmplWindowSizeConfig(void)
 
 		case 13:
 			{
-				int w = Monitor_W;
-				int h = (SCREEN_H * Monitor_W) / SCREEN_W;
+				int w = Gnd.MonitorRect.W;
+				int h = (SCREEN_H * Gnd.MonitorRect.W) / SCREEN_W;
 
-				if(Monitor_H < h)
+				if(Gnd.MonitorRect.H < h)
 				{
-					h = Monitor_H;
-					w = (SCREEN_W * Monitor_H) / SCREEN_H;
+					h = Gnd.MonitorRect.H;
+					w = (SCREEN_W * Gnd.MonitorRect.H) / SCREEN_H;
 
-					errorCase(Monitor_W < w);
+					errorCase(Gnd.MonitorRect.W < w);
 				}
-				SetScreenSize(Monitor_W, Monitor_H);
+				SetScreenSize(Gnd.MonitorRect.W, Gnd.MonitorRect.H);
 
-				Gnd.RealScreenDraw_L = (Monitor_W - w) / 2;
-				Gnd.RealScreenDraw_T = (Monitor_H - h) / 2;
+				Gnd.RealScreenDraw_L = (Gnd.MonitorRect.W - w) / 2;
+				Gnd.RealScreenDraw_T = (Gnd.MonitorRect.H - h) / 2;
 				Gnd.RealScreenDraw_W = w;
 				Gnd.RealScreenDraw_H = h;
 			}

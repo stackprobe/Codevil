@@ -3,6 +3,7 @@ typedef struct Gnd_st
 	taskList *EL; // EffectList
 	int PrimaryPadId; // -1 == 未設定
 	SubScreen_t *MainScreen; // NULL == 不使用
+	iRect_t MonitorRect;
 
 	// app > @ Gnd_t
 
@@ -29,7 +30,7 @@ typedef struct Gnd_st
 	/*
 		-1 == 割り当てナシ
 		0 - (PAD_BUTTON_MAX - 1) == 割り当てボタンID
-		def: SNWPB_*
+		def: SNWPB_* を適当に配置
 	*/
 	struct PadBtnId_st
 	{
@@ -50,6 +51,11 @@ typedef struct Gnd_st
 	}
 	PadBtnId;
 
+	/*
+		-1 == 割り当てナシ
+		0 - (KEY_MAX - 1) == 割り当てキーID
+		def: KEY_INPUT_* を適当に配置
+	*/
 	struct PadBtnId_st KbdKeyId;
 
 	int RO_MouseDispMode;

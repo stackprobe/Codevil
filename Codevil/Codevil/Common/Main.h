@@ -1,11 +1,6 @@
 extern int ProcMtxHdl;
 extern int DxLibInited;
 
-extern int Monitor_L;
-extern int Monitor_T;
-extern int Monitor_W;
-extern int Monitor_H;
-
 void EndProc(void);
 void ProcMain(void); // external
 
