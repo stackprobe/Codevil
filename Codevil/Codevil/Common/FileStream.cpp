@@ -41,7 +41,7 @@ void fileClose(FILE *fp)
 	errorCase(fclose(fp)); // ? 失敗
 }
 
-int readChar(FILE *fp)
+int readChar(FILE *fp) // バイナリ・テキスト問わずストリームから１バイト(１文字)読み込む。
 {
 	int chr = fgetc(fp);
 
@@ -131,7 +131,7 @@ autoList<char *> *readLines_x(char *file)
 	return lines;
 }
 
-void writeChar(FILE *fp, int chr)
+void writeChar(FILE *fp, int chr) // バイナリ・テキスト問わずストリームに１バイト(１文字)書き出す。
 {
 	errorCase(fputc(chr, fp) == EOF);
 }
