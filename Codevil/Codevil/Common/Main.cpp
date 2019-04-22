@@ -155,14 +155,6 @@ static void DxPrv_SetMouseDispMode(int mode)
 {
 	SetMouseDispFlag(mode ? 1 : 0);
 }
-static void UnloadGraph(int &hdl)
-{
-	if(hdl != -1)
-	{
-		errorCase(DeleteGraph(hdl)); // ? Ž¸”s
-		hdl = -1;
-	}
-}
 static void DxPrv_SetScreenSize(int w, int h)
 {
 	int mdm = GetMouseDispMode();

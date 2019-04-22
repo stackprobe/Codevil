@@ -108,7 +108,7 @@ int Pic_CreateSoftImage(int w, int h)
 }
 void Pic_ReleaseSoftImage(int si_h)
 {
-	errorCase(DeleteSoftImage(si_h) == -1); // ? Ž¸”s
+	errorCase(DeleteSoftImage(si_h)); // ? Ž¸”s
 }
 void Pic_ReleaseGraphicHandle(int handle)
 {
