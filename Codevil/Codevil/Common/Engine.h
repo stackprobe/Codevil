@@ -7,7 +7,5 @@ extern int WindowIsActive;
 extern int FrameRateDropCount;
 extern int NoFrameRateDropCount;
 
-extern int InnerDrawScrHdl;
-
 void EachFrame(void);
 void FreezeInput(int frame = 1);

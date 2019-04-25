@@ -6,17 +6,17 @@ static int MouseStatus[MOUBTN_MAX];
 
 void MouseEachFrame(void)
 {
-	int status;
+	uint status;
 
 	if(WindowIsActive)
 	{
 		MouseRot = GetMouseWheelRotVol();
-		status = GetMouseInput();
+		status = (uint)GetMouseInput();
 	}
 	else // ? 非アクティブ -> 無入力
 	{
 		MouseRot = 0;
-		status = 0;
+		status = 0u;
 	}
 	m_range(MouseRot, -IMAX, IMAX);
 

@@ -24,8 +24,6 @@ static void CheckHz(void)
 	FrameStartTime = currTime;
 }
 
-int InnerDrawScrHdl = -1;
-
 void EachFrame(void)
 {
 	if(!SEEachFrame())
