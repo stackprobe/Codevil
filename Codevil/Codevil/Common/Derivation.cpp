@@ -81,7 +81,11 @@ static void UnloadDer(int h)
 	errorCase(DeleteGraph(h)); // ? Ž¸”s
 }
 
-int Der(resCluster<PicInfo_t *> *resclu, int derId)
+int Der(int derId)
+{
+	return Der(derId, GetPicRes());
+}
+int Der(int derId, resCluster<PicInfo_t *> *resclu)
 {
 	errorCase(derId < 0 || D_MAX <= derId);
 

@@ -19,7 +19,8 @@ typedef struct DerInfo_st
 }
 DerInfo_t;
 
-int Der(resCluster<PicInfo_t *> *resclu, int derId);
+int Der(int derId);
+int Der(int derId, resCluster<PicInfo_t *> *resclu);
 int Der_W(int derId);
 int Der_H(int derId);
 
