@@ -28,7 +28,7 @@ void GameMain(void)
 
 		// フォントのテスト
 		DrawStringByFont(
-			10, 10,
+			10, 20,
 			"げんかいみんちょう",
 			GetFontHandle("源界明朝", 70, 6, 1, 2)
 			);
@@ -37,6 +37,13 @@ void GameMain(void)
 			"りいてがき",
 			GetFontHandle("りいてがき筆", 50, 6, 1, 2)
 			);
+
+
+
+		SetPrint();
+		PE.Color = GetColor(255, 128, 0);
+		Print_x(xcout("FRDC=%d,nFRDC=%d", FrameRateDropCount, NoFrameRateDropCount));
+		PE_Reset();
 
 
 

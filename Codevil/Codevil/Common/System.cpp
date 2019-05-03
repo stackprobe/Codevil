@@ -96,9 +96,9 @@ int IsWindowActive(void) // ret: ? このウィンドウはアクティブ
 }
 __int64 GetCurrTime(void)
 {
-#if 1
+#if 0 // 精度がいまいち
 	return (__int64)GetTickCount64();
-#else // old
+#else
 	static __int64 lastTime = -1;
 	static __int64 baseTime;
 	static uint lastCount;
