@@ -1,11 +1,11 @@
 extern int IgnoreEscapeKey;
 
 extern __int64 FrameStartTime;
+extern __int64 LangolierTime;
+extern double EatenByLangolierEval;
 extern int ProcFrame;
 extern int FreezeInputFrame;
 extern int WindowIsActive;
-extern int FrameRateDropCount;
-extern int NoFrameRateDropCount;
 
 void EachFrame(void);
 void FreezeInput(int frame = 1);

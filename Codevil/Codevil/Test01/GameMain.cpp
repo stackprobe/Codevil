@@ -42,7 +42,7 @@ void GameMain(void)
 
 		SetPrint();
 		PE.Color = GetColor(255, 128, 0);
-		Print_x(xcout("FRDC=%d,nFRDC=%d", FrameRateDropCount, NoFrameRateDropCount));
+		Print_x(xcout("EBLE=%.3f,FST=%I64d,LT=%I64d,(FST-LT)=%I64d", EatenByLangolierEval, FrameStartTime, LangolierTime, FrameStartTime - LangolierTime));
 		PE_Reset();
 
 

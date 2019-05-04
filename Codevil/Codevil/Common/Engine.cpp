@@ -4,22 +4,50 @@ int IgnoreEscapeKey;
 
 // ‘¼‚Ìƒtƒ@ƒCƒ‹‚©‚ç‚Í read only {
 __int64 FrameStartTime;
+__int64 LangolierTime;
+double EatenByLangolierEval = 0.5;
 int ProcFrame;
 int FreezeInputFrame;
 int WindowIsActive;
-int FrameRateDropCount;
-int NoFrameRateDropCount;
 // }
 
 static void CheckHz(void)
 {
 	__int64 currTime = GetCurrTime();
-	__int64 diffTime = currTime - FrameStartTime;
 
-	if(diffTime < 15 || 18 < diffTime) // ? frame rate drop
-		FrameRateDropCount++;
+	if(!ProcFrame)
+		LangolierTime = currTime;
 	else
-		NoFrameRateDropCount++;
+		LangolierTime += 16; // 16.666 ‚æ‚è¬‚³‚¢‚Ì‚ÅA60Hz‚È‚ç‚Ç‚ñ‚Ç‚ñˆø‚«—£‚³‚ê‚é‚Í‚¸B
+//		LangolierTime += 17; // test
+//		LangolierTime += 18; // test
+//		LangolierTime += 19; // test
+
+	if(currTime < LangolierTime)
+	{
+		m_approach(EatenByLangolierEval, 1.0, 0.9);
+
+		do
+		{
+			Sleep(1);
+
+			// DxLib >
+
+			ScreenFlip();
+
+			if(ProcessMessage() == -1)
+			{
+				EndProc();
+			}
+
+			// < DxLib
+
+			currTime = GetCurrTime();
+		}
+		while(currTime < LangolierTime);
+	}
+	else
+		EatenByLangolierEval *= 0.99;
 
 	FrameStartTime = currTime;
 }
@@ -32,6 +60,24 @@ void EachFrame(void)
 	}
 	Gnd.EL->ExecuteAllTask();
 	CurtainEachFrame();
+
+	if(900 < ProcFrame && 0.1 < EatenByLangolierEval) // Žb’è Žb’è Žb’è Žb’è Žb’è
+	{
+		static int passedCount = 900;
+
+		if(m_countDown(passedCount))
+		{
+			DPE_SetBright(GetColor(128, 0, 0));
+			DPE_SetAlpha(0.5);
+			DrawRect(P_WHITEBOX, 0, 0, SCREEN_W, 16);
+			DPE_Reset();
+
+			SetPrint();
+			PE.Color = GetColor(255, 255, 0);
+			Print_x(xcout("V-SYNC ALERT / EBLE=%.3f FST=%I64d LT=%I64d (%d)", EatenByLangolierEval, FrameStartTime, LangolierTime, passedCount));
+			PE_Reset();
+		}
+	}
 
 	// app > @ before draw screen
 
