@@ -19,10 +19,10 @@ static void CheckHz(void)
 		LangolierTime = currTime;
 	else
 		LangolierTime += 16; // 16.666 ÇÊÇËè¨Ç≥Ç¢ÇÃÇ≈ÅA60HzÇ»ÇÁÇ«ÇÒÇ«ÇÒà¯Ç´ó£Ç≥ÇÍÇÈÇÕÇ∏ÅB
-//		LangolierTime += 17; // test -- EBLE 0.20 Ç†ÇΩÇË
-//		LangolierTime += 18; // test -- EBLE 0.45 Ç†ÇΩÇË
-//		LangolierTime += 19; // test -- EBLE 0.59 Ç†ÇΩÇË
-//		LangolierTime += 20; // test -- EBLE 0.67 Ç†ÇΩÇË
+//		LangolierTime += 17; // test
+//		LangolierTime += 18; // test
+//		LangolierTime += 19; // test
+//		LangolierTime += 20; // test
 
 	while(currTime < LangolierTime)
 	{
@@ -56,22 +56,13 @@ void EachFrame(void)
 	Gnd.EL->ExecuteAllTask();
 	CurtainEachFrame();
 
-	if(900 < ProcFrame && 0.1 < EatenByLangolierEval) // ébíË ébíË ébíË ébíË ébíË
+	if(600 < ProcFrame && 0.1 < EatenByLangolierEval) // ébíË ébíË ébíË ébíË ébíË
 	{
-		static int passedCount = 900;
-
-		if(m_countDown(passedCount))
-		{
-			DPE_SetBright(GetColor(128, 0, 0));
-			DPE_SetAlpha(0.5);
-			DrawRect(P_WHITEBOX, 0, 0, SCREEN_W, 16);
-			DPE_Reset();
-
-			SetPrint();
-			PE.Color = GetColor(255, 255, 0);
-			Print_x(xcout("V-SYNC ALERT / EBLE=%.3f FST=%I64d LT=%I64d (%d) %d", EatenByLangolierEval, FrameStartTime, LangolierTime, passedCount, ProcFrame));
-			PE_Reset();
-		}
+		SetPrint();
+		PE.Color = GetColor(255, 255, 0);
+		PE_Border(GetColor(255, 0, 0));
+		Print_x(xcout("FPS TUNING %.3f", EatenByLangolierEval));
+		PE_Reset();
 	}
 
 	// app > @ before draw screen
