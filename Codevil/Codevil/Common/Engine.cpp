@@ -19,35 +19,30 @@ static void CheckHz(void)
 		LangolierTime = currTime;
 	else
 		LangolierTime += 16; // 16.666 ÇÊÇËè¨Ç≥Ç¢ÇÃÇ≈ÅA60HzÇ»ÇÁÇ«ÇÒÇ«ÇÒà¯Ç´ó£Ç≥ÇÍÇÈÇÕÇ∏ÅB
-//		LangolierTime += 17; // test
-//		LangolierTime += 18; // test
-//		LangolierTime += 19; // test
+//		LangolierTime += 17; // test -- EBLE 0.20 Ç†ÇΩÇË
+//		LangolierTime += 18; // test -- EBLE 0.45 Ç†ÇΩÇË
+//		LangolierTime += 19; // test -- EBLE 0.59 Ç†ÇΩÇË
+//		LangolierTime += 20; // test -- EBLE 0.67 Ç†ÇΩÇË
 
-	if(currTime < LangolierTime)
+	while(currTime < LangolierTime)
 	{
-		m_approach(EatenByLangolierEval, 1.0, 0.9);
+		Sleep(1);
 
-		do
+		// DxLib >
+
+		ScreenFlip();
+
+		if(ProcessMessage() == -1)
 		{
-			Sleep(1);
-
-			// DxLib >
-
-			ScreenFlip();
-
-			if(ProcessMessage() == -1)
-			{
-				EndProc();
-			}
-
-			// < DxLib
-
-			currTime = GetCurrTime();
+			EndProc();
 		}
-		while(currTime < LangolierTime);
+
+		// < DxLib
+
+		currTime = GetCurrTime();
+		m_approach(EatenByLangolierEval, 1.0, 0.9);
 	}
-	else
-		EatenByLangolierEval *= 0.99;
+	EatenByLangolierEval *= 0.99;
 
 	FrameStartTime = currTime;
 }
@@ -74,7 +69,7 @@ void EachFrame(void)
 
 			SetPrint();
 			PE.Color = GetColor(255, 255, 0);
-			Print_x(xcout("V-SYNC ALERT / EBLE=%.3f FST=%I64d LT=%I64d (%d)", EatenByLangolierEval, FrameStartTime, LangolierTime, passedCount));
+			Print_x(xcout("V-SYNC ALERT / EBLE=%.3f FST=%I64d LT=%I64d (%d) %d", EatenByLangolierEval, FrameStartTime, LangolierTime, passedCount, ProcFrame));
 			PE_Reset();
 		}
 	}
