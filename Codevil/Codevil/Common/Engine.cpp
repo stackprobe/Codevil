@@ -5,7 +5,9 @@ int IgnoreEscapeKey;
 // ëºÇÃÉtÉ@ÉCÉãÇ©ÇÁÇÕ read only {
 __int64 FrameStartTime;
 __int64 LangolierTime;
+__int64 LowHzTime;
 double EatenByLangolierEval = 0.5;
+double LowHzErrorRate = 0.0;
 int ProcFrame;
 int FreezeInputFrame;
 int WindowIsActive;
@@ -16,13 +18,15 @@ static void CheckHz(void)
 	__int64 currTime = GetCurrTime();
 
 	if(!ProcFrame)
+	{
 		LangolierTime = currTime;
+		LowHzTime = currTime;
+	}
 	else
+	{
 		LangolierTime += 16; // 16.666 ÇÊÇËè¨Ç≥Ç¢ÇÃÇ≈ÅA60HzÇ»ÇÁÇ«ÇÒÇ«ÇÒà¯Ç´ó£Ç≥ÇÍÇÈÇÕÇ∏ÅB
-//		LangolierTime += 17; // test
-//		LangolierTime += 18; // test
-//		LangolierTime += 19; // test
-//		LangolierTime += 20; // test
+		LowHzTime += 17;
+	}
 
 	while(currTime < LangolierTime)
 	{
@@ -44,6 +48,19 @@ static void CheckHz(void)
 	}
 	EatenByLangolierEval *= 0.99;
 
+	if(LowHzTime < currTime)
+	{
+		m_maxim(LowHzTime, currTime - 10);
+		m_approach(LowHzErrorRate, 1.0, 0.999);
+	}
+	else
+	{
+		m_minim(LowHzTime, currTime + 20);
+		LowHzErrorRate *= 0.99;
+	}
+
+//	LOG("%I64d\n", currTime - FrameStartTime); // test
+
 	FrameStartTime = currTime;
 }
 
@@ -56,12 +73,12 @@ void EachFrame(void)
 	Gnd.EL->ExecuteAllTask();
 	CurtainEachFrame();
 
-	if(600 < ProcFrame && 0.1 < EatenByLangolierEval) // ébíË ébíË ébíË ébíË ébíË
+	if(600 < ProcFrame && (0.1 < EatenByLangolierEval || 0.1 < LowHzErrorRate)) // ébíË ébíË ébíË ébíË ébíË
 	{
 		SetPrint();
-		PE.Color = GetColor(255, 255, 0);
-		PE_Border(GetColor(255, 0, 0));
-		Print_x(xcout("FPS TUNING %.3f", EatenByLangolierEval));
+		PE.Color = GetColor(255, 255, 255);
+		PE_Border(GetColor(0, 0, 255));
+		Print_x(xcout("FPS TUNING EBLE=%.3f LHzER=%.3f", EatenByLangolierEval, LowHzErrorRate));
 		PE_Reset();
 	}
 
