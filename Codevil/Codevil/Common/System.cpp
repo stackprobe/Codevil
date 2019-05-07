@@ -113,7 +113,7 @@ __int64 GetCurrTime(void)
 
 	errorCase(currTime < 0); // ? __int64のカンスト(オーバーフロー)
 	errorCase(currTime < lastTime); // ? 時間が戻った || カンスト(オーバーフロー)
-	errorCase(lastTime != -1 && lastTime + 60000 < currTime); // ? 1分以上経過 <- 飛び過ぎ
+//	errorCase(lastTime != -1 && lastTime + 60000 < currTime); // ? 1分以上経過 <- 飛び過ぎ // タイトルバーを長時間掴んでいれば有り得る。
 
 	lastTime = currTime;
 	return currTime;
