@@ -94,6 +94,24 @@ int IsWindowActive(void) // ret: ? このウィンドウはアクティブ
 {
 	return GetActiveFlag() ? 1 : 0;
 }
+#if 0 // test
+static int GetNowCount_TEST()
+{
+	static int inited = 0;
+	static int startCount;
+	int currCount = GetNowCount();
+
+	if(!inited)
+	{
+		startCount = GetNowCount();
+		inited = 1;
+	}
+	currCount -= startCount;
+	currCount -= 10000; // 要調整
+	return currCount;
+}
+#define GetNowCount() GetNowCount_TEST()
+#endif
 __int64 GetCurrTime(void)
 {
 #if 0 // 精度がいまいち
