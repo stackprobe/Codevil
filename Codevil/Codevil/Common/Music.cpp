@@ -54,7 +54,7 @@ static MusicInfo_t *LoadMusic(autoList<uchar> *fileData)
 		break;
 	}
 
-	SetVolume(i->Handle, 0.0); // ! ミュートしておく。
+	SetVolume(i->Handle, 0.0); // ミュートしておく。
 	return i;
 }
 static void UnloadMusic(MusicInfo_t *i)
