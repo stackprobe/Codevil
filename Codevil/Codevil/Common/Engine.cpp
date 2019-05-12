@@ -46,6 +46,7 @@ static void CheckHz(void)
 		currTime = GetCurrTime();
 		m_approach(EatenByLangolierEval, 1.0, 0.9);
 	}
+	m_maxim(LangolierTime, currTime - 30);
 	EatenByLangolierEval *= 0.99;
 
 	if(LowHzTime < currTime)
@@ -73,7 +74,7 @@ void EachFrame(void)
 	Gnd.EL->ExecuteAllTask();
 	CurtainEachFrame();
 
-	if(600 < ProcFrame && (0.1 < EatenByLangolierEval || 0.1 < LowHzErrorRate)) // Žb’è Žb’è Žb’è Žb’è Žb’è
+	if(600 < ProcFrame && (0.1 < EatenByLangolierEval || 0.1 < LowHzErrorRate)) // FPS Œx
 	{
 		SetPrint();
 		PE.Color = GetColor(255, 255, 255);

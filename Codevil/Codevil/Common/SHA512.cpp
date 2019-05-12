@@ -666,16 +666,16 @@ autoList<uchar> *sha512_block(autoList<uchar> *block)
 }
 /*
 	block:
-		b[0] ... [n]
+		in:
+			b[0] ... [n]
 
-	ret:
-		b[0] ... [n] +
-		sha512(b[0] ... b[n + 64 * 0])[0] ... [63] +
-		sha512(b[0] ... b[n + 64 * 1])[0] ... [63] +
-		sha512(b[0] ... b[n + 64 * 2])[0] ... [63] +
-		sha512(b[0] ... b[n + 64 * 3])[0] ... [63] +
-		...
-		sha512(b[0] ... b[n + 64 * (exnum - 1)])[0] ... [63]
+		out:
+			b[0] ... [n] +
+			sha512(out[0] ... out[n + 64 * 0])[0] ... [63] +
+			sha512(out[0] ... out[n + 64 * 1])[0] ... [63] +
+			sha512(out[0] ... out[n + 64 * 2])[0] ... [63] +
+			...
+			sha512(out[0] ... out[n + 64 * (exnum - 1)])[0] ... [63]
 */
 void sha512_expand(autoList<uchar> *block, int exnum) // exnum: 0- (0 as noop)
 {
