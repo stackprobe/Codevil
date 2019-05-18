@@ -1,4 +1,4 @@
-Donut2
+暫定小悪魔テンプレート用
 cerulean.charlotte
 (c) 2019 cerulean.charlotte
 %s %s
