@@ -1,76 +1,76 @@
 ===============================================================================
 
-�@�b�菬�����e���v���[�g�p / version $version$
-�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@�@(C) 2019 cerulean.charlotte
+　暫定小悪魔テンプレート用 / version $version$
+　　　　　　　　　　　　　　　　　　　　　　　　　　(C) 2019 cerulean.charlotte
 
 ===============================================================================
 
 
-���\�t�g�̊T�v
+■ソフトの概要
 
-�@�b�菬�����e���v���[�g�p
-
-
-������
-
-�@���̃\�t�g�́A�t���[�摜�f�ށE�t���[���y�i���ʉ��j�f�ނ��g�p���Ă܂��B
-�@���̃\�t�g���Ŏg�p����Ă���摜�E���y�i���ʉ��j���A���̃Q�[����V�ԈȊO�̗p�r�ɂ͎g�p���Ȃ��ŉ������B
+　暫定小悪魔テンプレート用
 
 
-�������
+■注意
 
-�@Windows 10
-�@�m�F���Ă��܂��� Windows 7/8/8.1 �ł�������������܂���B
-
-�@DirectX 9.0 �ȍ~
-�@2D�Q�[�������K�ɓ��삷��CPU
-�@Direct Graphic �Ή��̃r�f�I�J�[�h
-�@Direct Sound �Ή��̃T�E���h�J�[�h
+　このソフトは、フリー画像素材・フリー音楽（効果音）素材を使用してます。
+　このソフト内で使用されている画像・音楽（効果音）を、このゲームを遊ぶ以外の用途には使用しないで下さい。
 
 
-���C���X�g�[�����@
+■動作環境
 
-�@�A�[�J�C�u�̒��g�����[�J���f�B�X�N��̔C�ӂ̏ꏊ�ɃR�s�[���ĉ������B
+　Windows 10
+　確認していませんが Windows 7/8/8.1 でも動くかもしれません。
 
-
-���A���C���X�g�[�����@
-
-�@���W�X�g���Ȃǂ͈�؎g���Ă��܂���B
-�@�t�@�C�����폜���邾���ŃA���C���X�g�[���ł��܂��B
-
-
-���N�����@
-
-�@Codevil.exe �����s���ĉ������B
+　DirectX 9.0 以降
+　2Dゲームが快適に動作するCPU
+　Direct Graphic 対応のビデオカード
+　Direct Sound 対応のサウンドカード
 
 
-���V�ѕ�
+■インストール方法
 
-�@��������@
-
-�@�@�J�[�\���L�[ ... �v���C���[�E�J�[�\���̈ړ�
-�@�@�w           ... �U��
-�@�@�y           ... �ᑬ�ړ�
-
-�@�@�v���C���ǂ̃^�C�~���O�ł��G�X�P�[�v�L�[�������ƃQ�[�����I�����܂��B
-
-�@�@�Q�[���p�b�h�̎g�p���������߂��܂��B
+　アーカイブの中身をローカルディスク上の任意の場所にコピーして下さい。
 
 
-���f�ޒ�
+■アンインストール方法
 
-�@TODO
-
-
-����舵�����
-
-�@�t���[�\�t�g
+　レジストリなどは一切使っていません。
+　ファイルを削除するだけでアンインストールできます。
 
 
-�������
+■起動方法
 
-�@cerulean.charlotte
+　Codevil.exe を実行して下さい。
 
-�@http://cerulean.fam.cx/
-�@mailto:cerulean.charlotte@gmail.com
+
+■遊び方
+
+　●操作方法
+
+　　カーソルキー ... プレイヤー・カーソルの移動
+　　Ｘ           ... 攻撃
+　　Ｚ           ... 低速移動
+
+　　プレイ中どのタイミングでもエスケープキーを押すとゲームを終了します。
+
+　　ゲームパッドの使用をおすすめします。
+
+
+■素材提供
+
+　TODO
+
+
+■取り扱い種別
+
+　フリーソフト
+
+
+■製作者
+
+　cerulean.charlotte
+
+　http://cerulean.fam.cx/
+　mailto:cerulean.charlotte@gmail.com
 
