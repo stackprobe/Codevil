@@ -28,13 +28,23 @@ void DrawRect_LTRB(int picId, double l, double t, double r, double b);
 void DrawRect(int picId, double l, double t, double w, double h);
 void DrawSimple(int picId, double x, double y);
 void DrawCenter(int picId, double x, double y);
+
+// DrawBegin ` DrawEnd >
+
+void DrawBeginRect_LTRB(int picId, double l, double t, double r, double b);
+void DrawBeginRect(int picId, double l, double t, double w, double h);
 void DrawBegin(int picId, double x, double y);
 void DrawSlide(double x, double y);
 void DrawRotate(double rot);
 void DrawZoom_X(double z);
 void DrawZoom_Y(double z);
 void DrawZoom(double z);
+void DrawSetSize_W(double w);
+void DrawSetSize_H(double h);
+void DrawSetSize(double w, double h);
 void DrawEnd(void);
+
+// < DrawBegin ` DrawEnd
 
 void DPE_SetAlpha(double a);
 void DPE_SetBlendAdd(double a);

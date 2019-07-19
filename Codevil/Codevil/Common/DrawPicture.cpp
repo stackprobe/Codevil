@@ -365,6 +365,18 @@ void DrawCenter(int picId, double x, double y)
 	DrawEnd();
 }
 
+// DrawBegin ` DrawEnd >
+
+void DrawBeginRect_LTRB(int picId, double l, double t, double r, double b)
+{
+	DrawBeginRect(picId, l, t, r - l, b - t);
+}
+void DrawBeginRect(int picId, double l, double t, double w, double h)
+{
+	DrawBegin(picId, l + w / 2.0, t + h / 2.0);
+	DrawSetSize(w, h);
+}
+
 static int DB_PicId;
 static double DB_X;
 static double DB_Y;
@@ -472,6 +484,37 @@ void DrawZoom(double z)
 	DrawZoom_X(z);
 	DrawZoom_Y(z);
 }
+void DrawSetSize_W(double w)
+{
+	errorCase(!DB_L);
+
+	Layout_t *i = DB_L;
+
+	w /= 2.0;
+
+	i->u.Free.LTX = -w;
+	i->u.Free.RTX = w;
+	i->u.Free.RBX = w;
+	i->u.Free.LBX = -w;
+}
+void DrawSetSize_H(double h)
+{
+	errorCase(!DB_L);
+
+	Layout_t *i = DB_L;
+
+	h /= 2.0;
+
+	i->u.Free.LTY = -h;
+	i->u.Free.RTY = -h;
+	i->u.Free.RBY = h;
+	i->u.Free.LBY = h;
+}
+void DrawSetSize(double w, double h)
+{
+	DrawSetSize_W(w);
+	DrawSetSize_H(h);
+}
 void DrawEnd(void)
 {
 	errorCase(!DB_L);
@@ -490,6 +533,8 @@ void DrawEnd(void)
 	DrawPic(DB_PicId, i);
 	DB_L = NULL;
 }
+
+// < DrawBegin ` DrawEnd
 
 void DPE_SetAlpha(double a)
 {
