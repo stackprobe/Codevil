@@ -46,7 +46,7 @@ autoList<uchar> *SH_LoadFile(char *file)
 				fileClose(fp);
 			}
 
-			char *DUMMY_STRING = "*";
+			char *DUMMY_STRING = "*Dummy";
 
 			res = new resCluster<autoList<uchar> *>(CLUSTER_FILE, DUMMY_STRING, resCount, 150000000, LoadFileData, UnloadFileData);
 			fileList = readLines(res->GetHandle(0));

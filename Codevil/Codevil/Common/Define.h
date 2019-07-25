@@ -197,6 +197,8 @@ d2D_t;
 #define m_10(value) \
 	((value) == 0 ? 1 : 0)
 
+// アプリケーション固有の定義は ..\Define.h へ！
+
 // app > @ define
 
 // < app
