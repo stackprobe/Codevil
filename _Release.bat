@@ -6,6 +6,7 @@ C:\Factory\SubTools\makeAESCluster.exe Picture.txt     out\Picture.dat     %RAWK
 C:\Factory\SubTools\makeAESCluster.exe Music.txt       out\Music.dat       %RAWKEY% 120000000
 C:\Factory\SubTools\makeAESCluster.exe SoundEffect.txt out\SoundEffect.dat %RAWKEY% 130000000
 C:\Factory\SubTools\makeAESCluster.exe Etcetera.txt    out\Etcetera.dat    %RAWKEY% 140000000
+C:\Factory\SubTools\makeAESClusterForSH.exe Storehouse out\Storehouse.dat  %RAWKEY% 150000000
 
 COPY /B Codevil\Release\Codevil.exe out\Codevil.exe
 

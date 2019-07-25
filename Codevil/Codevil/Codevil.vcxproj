@@ -104,6 +104,7 @@
     <ClCompile Include="Common\SmplMenu.cpp" />
     <ClCompile Include="Common\Line.cpp" />
     <ClCompile Include="Common\Mutex.cpp" />
+    <ClCompile Include="Common\Storehouse.cpp" />
     <ClCompile Include="Common\SubScreen.cpp" />
     <ClCompile Include="Common\System2.cpp" />
     <ClCompile Include="Common\taskList.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Common\SmplMenu.h" />
     <ClInclude Include="Common\Line.h" />
     <ClInclude Include="Common\Mutex.h" />
+    <ClInclude Include="Common\Storehouse.h" />
     <ClInclude Include="Common\SubScreen.h" />
     <ClInclude Include="all.h" />
     <ClInclude Include="Common\autoList.h" />
