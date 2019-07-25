@@ -83,10 +83,6 @@ void EachFrame(void)
 		PE_Reset();
 	}
 
-	// app > @ before draw screen
-
-	// < app
-
 	if(Gnd.MainScreen && CurrDrawScreenHandle == GetHandle(Gnd.MainScreen))
 	{
 		ChangeDrawScreen(DX_SCREEN_BACK);
@@ -106,7 +102,7 @@ void EachFrame(void)
 		}
 	}
 
-	// app > @ post draw screen
+	// app > @ before ScreenFlip
 
 	// < app
 
@@ -120,6 +116,10 @@ void EachFrame(void)
 	}
 
 	// < DxLib
+
+	// app > @ after ScreenFlip
+
+	// < app
 
 	CheckHz();
 
@@ -140,6 +140,10 @@ void EachFrame(void)
 
 		ChangeDrawScreen(Gnd.MainScreen);
 	}
+
+	// app > @ post EachFrame
+
+	// < app
 }
 void FreezeInput(int frame) // frame: 1 == このフレームのみ, 2 == このフレームと次のフレーム ...
 {

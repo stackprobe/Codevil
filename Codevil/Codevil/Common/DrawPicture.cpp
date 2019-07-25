@@ -275,6 +275,10 @@ static int DrawPicFunc(Param_t *i)
 		ResetBright();
 	}
 
+	// app > @ post draw picture
+
+	// < app
+
 	return 0;
 }
 static void DrawPicReleaseParam(Param_t *i)
