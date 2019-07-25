@@ -56,6 +56,40 @@ static PicInfo_t *LoadMirrorPic(autoList<uchar> *fileData)
 }
 oneObject(resCluster<PicInfo_t *>, CreatePicRes(LoadMirrorPic, UnloadPic), GetMirrorPicRes);
 
+static PicInfo_t *LoadBgTransPic(autoList<uchar> *fileData)
+{
+	int si_h = Pic_FileData2SoftImage(fileData);
+	int w;
+	int h;
+
+	Pic_GetSoftImageSize(si_h, w, h);
+
+	Pic_GetSIPixel(si_h, 0, 0); // ç∂è„ã˜ÇÃÉsÉNÉZÉã
+
+	int targetR = SI_R;
+	int targetG = SI_G;
+	int targetB = SI_B;
+
+	for(int x = 0; x < w; x++)
+	for(int y = 0; y < h; y++)
+	{
+		Pic_GetSIPixel(si_h, x, y);
+
+		if(
+			targetR == SI_R &&
+			targetG == SI_G &&
+			targetB == SI_B
+			)
+		{
+			SI_A = 0;
+
+			Pic_SetSIPixel(si_h, x, y);
+		}
+	}
+	return Pic_GraphicHandle2PicInfo(Pic_SoftImage2GraphicHandle(si_h));
+}
+oneObject(resCluster<PicInfo_t *>, CreatePicRes(LoadBgTransPic, UnloadPic), GetBgTransPicRes);
+
 // app > @ original PicRes
 
 // < app
