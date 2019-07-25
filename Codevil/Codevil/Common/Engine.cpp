@@ -91,8 +91,6 @@ void EachFrame(void)
 	{
 		ChangeDrawScreen(DX_SCREEN_BACK);
 
-		// app > @ draw screen
-
 		if(Gnd.RealScreenDraw_W == -1)
 		{
 			errorCase(DrawExtendGraph(0, 0, Gnd.RealScreen_W, Gnd.RealScreen_H, GetHandle(Gnd.MainScreen), 0)); // ? Ž¸”s
@@ -106,8 +104,6 @@ void EachFrame(void)
 				Gnd.RealScreenDraw_L + Gnd.RealScreenDraw_W,
 				Gnd.RealScreenDraw_T + Gnd.RealScreenDraw_H, GetHandle(Gnd.MainScreen), 0)); // ? Ž¸”s
 		}
-
-		// < app
 	}
 
 	// app > @ post draw screen
