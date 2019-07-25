@@ -13,4 +13,4 @@ enum
 	ETC_MAX, // num of member
 };
 
-oneObjectProto(resCluster<autoList<uchar> *>, GetEtcRes);
+autoList<uchar> *GetEtcFileData(int etcId);

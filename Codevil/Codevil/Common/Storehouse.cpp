@@ -25,8 +25,7 @@ static void UnloadFileData(autoList<uchar> *fileData)
 		STOREHOUSE_DIR からの相対パスであること。余計な ".", ".." などを含まないこと。
 
 	ret:
-		呼び出し側で開放する必要がある。
-		因みに、GetEtcRes()->GetHandle() は、戻り値を「開放してはならない」ので注意！
+		呼び出し側で開放しなければならない。
 */
 autoList<uchar> *SH_LoadFile(char *file)
 {
@@ -47,7 +46,9 @@ autoList<uchar> *SH_LoadFile(char *file)
 				fileClose(fp);
 			}
 
-			res = new resCluster<autoList<uchar> *>(CLUSTER_FILE, "*Dummy", resCount, 150000000, LoadFileData, UnloadFileData);
+			char *DUMMY_STRING = "*";
+
+			res = new resCluster<autoList<uchar> *>(CLUSTER_FILE, DUMMY_STRING, resCount, 150000000, LoadFileData, UnloadFileData);
 			fileList = readLines(res->GetHandle(0));
 
 			errorCase(fileList->GetCount() != resCount - 1);

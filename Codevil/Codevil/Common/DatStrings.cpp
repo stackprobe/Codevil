@@ -6,7 +6,7 @@ static autoList<char *> *GetDatStrings(void)
 
 	if(!datStrings)
 	{
-		autoList<uchar> *fileData = GetEtcRes()->GetHandle(ETC_DATSTRINGS);
+		autoList<uchar> *fileData = GetEtcFileData(ETC_DATSTRINGS);
 		int rIndex = 0;
 
 		datStrings = new autoList<char *>();
@@ -20,7 +20,7 @@ static autoList<char *> *GetDatStrings(void)
 		}
 		errorCase(readLine(fileData, rIndex)); // ? s‚ª‘½‚¢B
 
-		GetEtcRes()->UnloadAllHandle(); // ‘e‘åƒSƒ~ŠJ•ú
+		delete fileData;
 	}
 	return datStrings;
 }
