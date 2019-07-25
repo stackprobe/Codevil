@@ -20,30 +20,71 @@ static void UnloadFileData(autoList<uchar> *fileData)
 {
 	delete fileData;
 }
-autoList<uchar> *SH_LoadFile(char *relFile)
+/*
+	file:
+		STOREHOUSE_DIR からの相対パスであること。余計な ".", ".." などを含まないこと。
+
+	ret:
+		呼び出し側で開放する必要がある。
+		因みに、GetEtcRes()->GetHandle() は、戻り値を「開放してはならない」ので注意！
+*/
+autoList<uchar> *SH_LoadFile(char *file)
 {
+	autoList<uchar> *fileData;
+
 	if(IsClusterMode())
 	{
 		static resCluster<autoList<uchar> *> *res;
+		static autoList<char *> *fileList;
 
 		if(!res)
 		{
-			FILE *fp = fileOpen(CLUSTER_FILE, "rb");
-			int resCount = readUI32(fp);
-			errorCase(!m_isRange(resCount, 1, IMAX));
-			fileClose(fp);
+			int resCount;
 
-			res = new resCluster<autoList<uchar> *>(CLUSTER_FILE, NULL, resCount, 150000000, LoadFileData, UnloadFileData);
+			{
+				FILE *fp = fileOpen(CLUSTER_FILE, "rb");
+				resCount = readUI32(fp);
+				fileClose(fp);
+			}
+
+			res = new resCluster<autoList<uchar> *>(CLUSTER_FILE, "*Dummy", resCount, 150000000, LoadFileData, UnloadFileData);
+			fileList = readLines(res->GetHandle(0));
+
+			errorCase(fileList->GetCount() != resCount - 1);
 		}
+		int index;
 
-		// TODO
+		for(index = 0; index < fileList->GetCount(); index++)
+			if(!_stricmp(file, fileList->GetElement(index)))
+				break;
+
+		errorCase(index == fileList->GetCount());
+
+		fileData = res->GetHandle(index + 1)->Eject();
+		res->UnloadAllHandle();
 	}
-
-	// TODO
-
-	return NULL; // TODO
+	else
+	{
+		file = combine(STOREHOUSE_DIR, file);
+		fileData = readAllBytes(file);
+		memFree(file);
+	}
+	return fileData;
 }
-void SH_SaveFile(char *relFile, autoList<uchar> *fileData)
+void SH_SaveFile(char *file, autoList<uchar> *fileData) // file: STOREHOUSE_DIR からの相対パスであること。
 {
-	// TODO
+	if(IsClusterMode())
+	{
+		error();
+	}
+	else
+	{
+		file = combine(STOREHOUSE_DIR, file);
+		writeAllBytes(file, fileData);
+		memFree(file);
+	}
+}
+int SH_IsClusterMode(void)
+{
+	return IsClusterMode();
 }

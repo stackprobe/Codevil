@@ -142,6 +142,7 @@
     <ClCompile Include="Test01\TitleMenu.cpp" />
     <ClCompile Include="Tests\Common\FontTest.cpp" />
     <ClCompile Include="Tests\Common\LineTest.cpp" />
+    <ClCompile Include="Tests\Common\StorehouseTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\aes128.h" />
@@ -208,6 +209,7 @@
     <ClInclude Include="Tests\Common\all.h" />
     <ClInclude Include="Tests\Common\FontTest.h" />
     <ClInclude Include="Tests\Common\LineTest.h" />
+    <ClInclude Include="Tests\Common\StorehouseTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

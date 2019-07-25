@@ -4,3 +4,4 @@
 
 #include "LineTest.h"
 #include "FontTest.h"
+#include "StorehouseTest.h"
