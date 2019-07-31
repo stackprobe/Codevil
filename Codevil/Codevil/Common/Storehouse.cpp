@@ -89,7 +89,7 @@ int SH_IsClusterMode(void)
 {
 	return IsClusterMode();
 }
-int SH_ExistFile(char *file)
+int SH_IsExistFile(char *file)
 {
 	errorCase(IsClusterMode()); // リリース時は使用不可！
 
