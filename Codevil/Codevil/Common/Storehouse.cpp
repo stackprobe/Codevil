@@ -89,3 +89,12 @@ int SH_IsClusterMode(void)
 {
 	return IsClusterMode();
 }
+int SH_ExistFile(char *file)
+{
+	errorCase(IsClusterMode()); // リリース時は使用不可！
+
+	file = combine(STOREHOUSE_DIR, file);
+	int ret = accessible(file);
+	memFree(file);
+	return ret;
+}
