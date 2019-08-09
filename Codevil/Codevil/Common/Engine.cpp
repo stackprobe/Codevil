@@ -140,6 +140,14 @@ void EachFrame(void)
 
 		ChangeDrawScreen(Gnd.MainScreen);
 	}
+	else
+	{
+		if(Gnd.MainScreen)
+		{
+			ReleaseSubScreen(Gnd.MainScreen);
+			Gnd.MainScreen = NULL;
+		}
+	}
 
 	// app > @ post EachFrame
 
