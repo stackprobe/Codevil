@@ -232,27 +232,25 @@ endInput:
 
 // ---- 画面サイズ ----
 
+static int WinSzExp(int size, int index)
+{
+	return (size * (8 + index)) / 8;
+}
 void SmplWindowSizeConfig(void)
 {
-	errorCase(SCREEN_W % 8);
-	errorCase(SCREEN_H % 8);
-
-	const int W8 = SCREEN_W / 8;
-	const int H8 = SCREEN_H / 8;
-
 	char *MENU_ITEMS[] =
 	{
 		xcout("%d x %d (デフォルト)", SCREEN_W, SCREEN_H),
-		xcout("%d x %d", SCREEN_W + W8 *  1, SCREEN_H + H8 *  1),
-		xcout("%d x %d", SCREEN_W + W8 *  2, SCREEN_H + H8 *  2),
-		xcout("%d x %d", SCREEN_W + W8 *  3, SCREEN_H + H8 *  3),
-		xcout("%d x %d", SCREEN_W + W8 *  4, SCREEN_H + H8 *  4),
-		xcout("%d x %d", SCREEN_W + W8 *  5, SCREEN_H + H8 *  5),
-		xcout("%d x %d", SCREEN_W + W8 *  6, SCREEN_H + H8 *  6),
-		xcout("%d x %d", SCREEN_W + W8 *  7, SCREEN_H + H8 *  7),
-		xcout("%d x %d", SCREEN_W + W8 *  8, SCREEN_H + H8 *  8),
-		xcout("%d x %d", SCREEN_W + W8 *  9, SCREEN_H + H8 *  9),
-		xcout("%d x %d", SCREEN_W + W8 * 10, SCREEN_H + H8 * 10),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  1), WinSzExp(SCREEN_H,  1)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  2), WinSzExp(SCREEN_H,  2)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  3), WinSzExp(SCREEN_H,  3)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  4), WinSzExp(SCREEN_H,  4)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  5), WinSzExp(SCREEN_H,  5)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  6), WinSzExp(SCREEN_H,  6)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  7), WinSzExp(SCREEN_H,  7)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  8), WinSzExp(SCREEN_H,  8)),
+		xcout("%d x %d", WinSzExp(SCREEN_W,  9), WinSzExp(SCREEN_H,  9)),
+		xcout("%d x %d", WinSzExp(SCREEN_W, 10), WinSzExp(SCREEN_H, 10)),
 		"フルスクリーン 画面に合わせる",
 		"フルスクリーン 縦横比維持",
 		"フルスクリーン 黒背景 (推奨)",
@@ -278,7 +276,7 @@ void SmplWindowSizeConfig(void)
 		case 8:
 		case 9:
 		case 10:
-			SetScreenSize(SCREEN_W + W8 * selectIndex, SCREEN_H + H8 * selectIndex);
+			SetScreenSize(WinSzExp(SCREEN_W, selectIndex), WinSzExp(SCREEN_H, selectIndex));
 			break;
 
 		case 11:
