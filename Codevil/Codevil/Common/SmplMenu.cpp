@@ -234,27 +234,28 @@ endInput:
 
 void SmplWindowSizeConfig(void)
 {
+	errorCase(SCREEN_W % 8);
+	errorCase(SCREEN_H % 8);
+
+	const int W8 = SCREEN_W / 8;
+	const int H8 = SCREEN_H / 8;
+
 	char *MENU_ITEMS[] =
 	{
-		// app > @ WindowSize_MENU_ITEMS_0_10
-
-		"800 x 600 (デフォルト)",
-		"900 x 675",
-		"1000 x 750",
-		"1100 x 825",
-		"1200 x 900",
-		"1300 x 975",
-		"1400 x 1050",
-		"1500 x 1125",
-		"1600 x 1200",
-		"1700 x 1275",
-		"1800 x 1350",
-
-		// < app
-
-		"フルスクリーン",
-		"フルスクリーン (縦横比維持)",
-		"フルスクリーン (黒背景)",
+		xcout("%d x %d (デフォルト)", SCREEN_W, SCREEN_H),
+		xcout("%d x %d", SCREEN_W + W8 *  1, SCREEN_H + H8 *  1),
+		xcout("%d x %d", SCREEN_W + W8 *  2, SCREEN_H + H8 *  2),
+		xcout("%d x %d", SCREEN_W + W8 *  3, SCREEN_H + H8 *  3),
+		xcout("%d x %d", SCREEN_W + W8 *  4, SCREEN_H + H8 *  4),
+		xcout("%d x %d", SCREEN_W + W8 *  5, SCREEN_H + H8 *  5),
+		xcout("%d x %d", SCREEN_W + W8 *  6, SCREEN_H + H8 *  6),
+		xcout("%d x %d", SCREEN_W + W8 *  7, SCREEN_H + H8 *  7),
+		xcout("%d x %d", SCREEN_W + W8 *  8, SCREEN_H + H8 *  8),
+		xcout("%d x %d", SCREEN_W + W8 *  9, SCREEN_H + H8 *  9),
+		xcout("%d x %d", SCREEN_W + W8 * 10, SCREEN_H + H8 * 10),
+		"フルスクリーン 画面に合わせる",
+		"フルスクリーン 縦横比維持",
+		"フルスクリーン 黒背景 (推奨)",
 		"戻る",
 	};
 
@@ -266,24 +267,24 @@ void SmplWindowSizeConfig(void)
 
 		switch(selectIndex)
 		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+			SetScreenSize(SCREEN_W + W8 * selectIndex, SCREEN_H + H8 * selectIndex);
+			break;
 
-		// app > @ WindowSize_switch_case_0_10
+		case 11:
+			SetScreenSize(Gnd.MonitorRect.W, Gnd.MonitorRect.H);
+			break;
 
-		case 0: SetScreenSize(800, 600); break;
-		case 1: SetScreenSize(900, 675); break;
-		case 2: SetScreenSize(1000, 750); break;
-		case 3: SetScreenSize(1100, 825); break;
-		case 4: SetScreenSize(1200, 900); break;
-		case 5: SetScreenSize(1300, 975); break;
-		case 6: SetScreenSize(1400, 1050); break;
-		case 7: SetScreenSize(1500, 1125); break;
-		case 8: SetScreenSize(1600, 1200); break;
-		case 9: SetScreenSize(1700, 1275); break;
-		case 10: SetScreenSize(1800, 1350); break;
-
-		// < app
-
-		case 11: SetScreenSize(Gnd.MonitorRect.W, Gnd.MonitorRect.H); break;
 		case 12:
 			{
 				int w = Gnd.MonitorRect.W;
@@ -328,7 +329,10 @@ void SmplWindowSizeConfig(void)
 			error();
 		}
 	}
-endLoop:;
+endLoop:
+	for(int i = 0; i < lengthof(MENU_ITEMS); i++)
+		if(isdigit(*MENU_ITEMS[i]))
+			memFree(MENU_ITEMS[i]);
 }
 
 // ---- ボリューム ----
