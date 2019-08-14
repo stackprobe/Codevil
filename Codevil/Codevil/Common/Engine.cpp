@@ -5,9 +5,7 @@ int IgnoreEscapeKey;
 // 他のファイルからは read only {
 __int64 FrameStartTime;
 __int64 LangolierTime;
-__int64 LowHzTime;
-double EatenByLangolierEval = 0.5;
-double LowHzErrorRate = 0.0;
+int FrameProcessingMillis;
 int ProcFrame;
 int FreezeInputFrame;
 int WindowIsActive;
@@ -17,51 +15,14 @@ static void CheckHz(void)
 {
 	__int64 currTime = GetCurrTime();
 
-	if(!ProcFrame)
-	{
-		LangolierTime = currTime;
-		LowHzTime = currTime;
-	}
-	else
-	{
-		LangolierTime += 16; // 16.666 より小さいので、60Hzならどんどん引き離されるはず。
-		LowHzTime += 17;
-	}
+	LangolierTime += 16; // 16.666 より小さいので、60Hzならどんどん引き離されるはず。
+	m_range(LangolierTime, currTime - 100, currTime + 100);
 
 	while(currTime < LangolierTime)
 	{
 		Sleep(1);
-
-		// DxLib >
-
-		ScreenFlip();
-
-		if(ProcessMessage() == -1)
-		{
-			EndProc();
-		}
-
-		// < DxLib
-
 		currTime = GetCurrTime();
-		m_approach(EatenByLangolierEval, 1.0, 0.9);
 	}
-	m_maxim(LangolierTime, currTime - 30);
-	EatenByLangolierEval *= 0.99;
-
-	if(LowHzTime < currTime)
-	{
-		m_maxim(LowHzTime, currTime - 10);
-		m_approach(LowHzErrorRate, 1.0, 0.999);
-	}
-	else
-	{
-		m_minim(LowHzTime, currTime + 20);
-		LowHzErrorRate *= 0.99;
-	}
-
-//	LOG("%I64d\n", currTime - FrameStartTime); // test
-
 	FrameStartTime = currTime;
 }
 
@@ -73,15 +34,6 @@ void EachFrame(void)
 	}
 	Gnd.EL->ExecuteAllTask();
 	CurtainEachFrame();
-
-	if(600 < ProcFrame && (0.1 < EatenByLangolierEval || 0.1 < LowHzErrorRate)) // FPS 警告
-	{
-		SetPrint();
-		PE.Color = GetColor(255, 255, 255);
-		PE_Border(GetColor(0, 0, 255));
-		Print_x(xcout("FPS TUNING EBLE=%.3f LHzER=%.3f", EatenByLangolierEval, LowHzErrorRate));
-		PE_Reset();
-	}
 
 	if(Gnd.MainScreen && CurrDrawScreenHandle == GetHandle(Gnd.MainScreen))
 	{
@@ -105,6 +57,8 @@ void EachFrame(void)
 	// app > @ before ScreenFlip
 
 	// < app
+
+	FrameProcessingMillis = (int)(GetCurrTime() - FrameStartTime);
 
 	// DxLib >
 
