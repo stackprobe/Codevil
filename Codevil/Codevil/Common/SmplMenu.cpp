@@ -177,6 +177,9 @@ endInput:
 
 		DrawCurtain();
 
+		if(SmplMenu_WallColor != -1)
+			DrawBox(0, 0, SCREEN_W, SCREEN_H, SmplMenu_WallColor, 1);
+
 		if(SmplMenu_WallPicId != -1)
 		{
 			DrawRect(SmplMenu_WallPicId, 0, 0, SCREEN_W, SCREEN_H);
@@ -424,6 +427,9 @@ double SmplVolumeConfig(char *menuTitle, double rate, int minval, int maxval, in
 		}
 
 		DrawCurtain();
+
+		if(SmplMenu_WallColor != -1)
+			DrawBox(0, 0, SCREEN_W, SCREEN_H, SmplMenu_WallColor, 1);
 
 		if(SmplMenu_WallPicId != -1)
 		{
