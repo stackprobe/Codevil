@@ -82,13 +82,15 @@ void GameMain(void)
 		SetPrint();
 		PE.Color = GetColor(255, 128, 0);
 		Print_x(xcout(
-			"FST=%I64d,LT=%I64d,FPM=%d,FPMA=%.3f(EPF=%d,EC=%d)"
+			"FST=%I64d,LT=%I64d,FPM=%d,FPMW=%d,FPMA=%.3f(EPF=%d,EC=%d,ELC=%d)"
 			,FrameStartTime
 			,LangolierTime
 			,FrameProcessingMillis
+			,FrameProcessingMillis_Worst
 			,frmProcMilAvg
 			,effectPerFrm
 			,effectCount
+			,Gnd.EL->GetCount()
 			));
 		PE_Reset();
 

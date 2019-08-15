@@ -6,6 +6,8 @@ int IgnoreEscapeKey;
 __int64 FrameStartTime;
 __int64 LangolierTime;
 int FrameProcessingMillis;
+int FrameProcessingMillis_Worst;
+int FrameProcessingMillis_WorstFrame;
 int ProcFrame;
 int FreezeInputFrame;
 int WindowIsActive;
@@ -63,6 +65,12 @@ void EachFrame(void)
 	// < app
 
 	FrameProcessingMillis = (int)(GetCurrTime() - FrameStartTime);
+
+	if(FrameProcessingMillis_Worst < FrameProcessingMillis || !m_countDown(FrameProcessingMillis_WorstFrame))
+	{
+		FrameProcessingMillis_Worst = FrameProcessingMillis;
+		FrameProcessingMillis_WorstFrame = 120;
+	}
 
 	// DxLib >
 

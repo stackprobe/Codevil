@@ -3,6 +3,8 @@ extern int IgnoreEscapeKey;
 extern __int64 FrameStartTime;
 extern __int64 LangolierTime;
 extern int FrameProcessingMillis;
+extern int FrameProcessingMillis_Worst;
+extern int FrameProcessingMillis_WorstFrame;
 extern int ProcFrame;
 extern int FreezeInputFrame;
 extern int WindowIsActive;
