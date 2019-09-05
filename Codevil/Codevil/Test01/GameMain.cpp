@@ -79,7 +79,14 @@ void GameMain(void)
 			frmProcMilAvgDenom /= 2;
 		}
 
+		DPE.TL = Gnd.EL;
+		DPE_SetAlpha(0.5);
+		DPE_SetBright(GetColor(0, 0, 0));
+		DrawRect(P_WHITEBOX, 0, 0, SCREEN_W, 16);
+		DPE_Reset();
+
 		SetPrint();
+		PE.TL = Gnd.EL;
 		PE.Color = GetColor(255, 128, 0);
 		Print_x(xcout(
 			"FST=%I64d,LT=%I64d,FPM=%d,FPMW=%d,FPMA=%.3f(EPF=%d,EC=%d,ELC=%d)"
