@@ -71,7 +71,8 @@ void SetCurtain(int frameMax, double destWhiteLevel, double startWhiteLevel)
 
 	if(!frameMax)
 	{
-		GetCurtainQueue()->Enqueue(destWhiteLevel);
+		CurrCurtainWhiteLevel = destWhiteLevel;
+//		GetCurtainQueue()->Enqueue(destWhiteLevel); // old -- Donut2 ‚É‡‚í‚¹‚éB
 		return;
 	}
 	for(int frmcnt = 0; frmcnt <= frameMax; frmcnt++)
