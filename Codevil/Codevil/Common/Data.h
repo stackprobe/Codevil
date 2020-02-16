@@ -1,7 +1,7 @@
 template <class Value_t>
 void swap(Value_t *a, Value_t *b, int size)
 {
-	Value_t *tmp = na(Value_t, size);
+	Value_t *tmp = na_(Value_t, size);
 
 	memcpy(tmp, a, size);
 	memcpy(a, b, size);
