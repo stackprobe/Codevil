@@ -7,7 +7,8 @@ enum
 	MOUBTN_MAX, // num of member
 };
 
-extern int MouseRot;
+#define MouseRot (MouseRot_Get())
+
 extern int MouseX;
 extern int MouseY;
 extern int MouseMoveX;
@@ -16,6 +17,7 @@ extern int MouseMoveY;
 void MouseEachFrame(void);
 int GetMouInput(int mouBtnId);
 int GetMouPound(int mouBtnId);
+int MouseRot_Get(void);
 void UpdateMousePos(void);
 void ApplyMousePos(void);
 void UpdateMouseMove(void);

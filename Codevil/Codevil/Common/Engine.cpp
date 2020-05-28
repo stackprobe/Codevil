@@ -122,5 +122,6 @@ void EachFrame(void)
 void FreezeInput(int frame) // frame: 1 == このフレームのみ, 2 == このフレームと次のフレーム ...
 {
 	errorCase(frame < 1 || IMAX < frame);
-	FreezeInputFrame = frame;
+
+	m_maxim(FreezeInputFrame, frame); // frame より長いフレーム数が既に設定されていたら、そちらを優先する。
 }

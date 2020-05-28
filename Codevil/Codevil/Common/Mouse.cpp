@@ -1,7 +1,6 @@
 #include "all.h"
 
-int MouseRot;
-
+static int Rot;
 static int MouseStatus[MOUBTN_MAX];
 
 void MouseEachFrame(void)
@@ -10,15 +9,15 @@ void MouseEachFrame(void)
 
 	if(WindowIsActive)
 	{
-		MouseRot = GetMouseWheelRotVol();
+		Rot = GetMouseWheelRotVol();
 		status = (uint)GetMouseInput();
 	}
 	else // ? 非アクティブ -> 無入力
 	{
-		MouseRot = 0;
+		Rot = 0;
 		status = 0u;
 	}
-	m_range(MouseRot, -IMAX, IMAX);
+	m_range(Rot, -IMAX, IMAX);
 
 	updateInput(MouseStatus[MOUBTN_L], status & MOUSE_INPUT_LEFT);
 	updateInput(MouseStatus[MOUBTN_M], status & MOUSE_INPUT_MIDDLE);
@@ -33,6 +32,10 @@ int GetMouInput(int mouBtnId)
 int GetMouPound(int mouBtnId)
 {
 	return isPound(GetMouInput(mouBtnId));
+}
+int MouseRot_Get(void)
+{
+	return FreezeInputFrame ? 0 : Rot;
 }
 
 int MouseX = SCREEN_CENTER_X;
