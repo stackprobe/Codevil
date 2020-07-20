@@ -49,13 +49,29 @@ void AddFontFile(int etcId, char *localFile)
 // ---- FontHandle ----
 
 /*
-	fontThick: 1 - 9, def == 6   -- 多分 DxLib のソースの SetFontThickness() を見てデフォが 6 だったんだと思う。
+	fontThick: 0 ～ 9 (デフォルト値：6)
+
+		値域の根拠
+			マニュアル
+				https://dxlib.xsrv.jp/function/dxfunc_graph2.html#R17N10
+
+		デフォルト値の根拠
+			マニュアル
+				https://dxlib.xsrv.jp/function/dxfunc_graph2.html#R17N8
+
+			src
+				C:\wb2\20191209_src\DxLibMake3_20\DxFont.cpp
+					CreateFontToHandle_Static()
+						if( Thick < 0 ) Thick = DEFAULT_FONT_THINCK ;
+
+				C:\wb2\20191209_src\DxLibMake3_20\DxLib.h
+					#define DEFAULT_FONT_THINCK (6)
 */
 FontHandle_t *CreateFontHandle(char *fontName, int fontSize, int fontThick, int antiAliasing, int edgeSize, int italicFlag)
 {
 	errorCase(m_isEmpty(fontName));
 	errorCase(!m_isRange(fontSize, 1, IMAX));
-	errorCase(!m_isRange(fontThick, 1, 9));
+	errorCase(!m_isRange(fontThick, 0, 9));
 	// antiAliasing
 	errorCase(!m_isRange(edgeSize, 0, IMAX));
 	// italicFlag
