@@ -110,7 +110,7 @@ static void DoAlterCommand(int seId, int alterCommand)
 
 	SEInfo_t *i = sis + sisi;
 	sisi = (sisi + 1) % lengthof(sis);
-	*i = *GetSERes()->GetHandle(seId); // todo: SEInfo_t ÇÃï°êª <-- ñ‚ëËñ≥Ç¢Ç©ÅH
+	*i = *GetSERes()->GetHandle(seId); // HACK: SEInfo_t ÇÃï°êª <-- ñ‚ëËñ≥Ç¢Ç©ÅH
 	i->AlterCommand = alterCommand;
 
 	GetPlayList()->Enqueue(i);
