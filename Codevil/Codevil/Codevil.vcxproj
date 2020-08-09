@@ -101,7 +101,7 @@
     <ClCompile Include="Common\Jammer.cpp" />
     <ClCompile Include="Common\JChar.cpp" />
     <ClCompile Include="Common\Lines.cpp" />
-    <ClCompile Include="Common\SmplMenu.cpp" />
+    <ClCompile Include="Common\SimpleMenu.cpp" />
     <ClCompile Include="Common\Line.cpp" />
     <ClCompile Include="Common\Mutex.cpp" />
     <ClCompile Include="Common\Storehouse.cpp" />
@@ -161,7 +161,7 @@
     <ClInclude Include="Common\Jammer.h" />
     <ClInclude Include="Common\JChar.h" />
     <ClInclude Include="Common\Lines.h" />
-    <ClInclude Include="Common\SmplMenu.h" />
+    <ClInclude Include="Common\SimpleMenu.h" />
     <ClInclude Include="Common\Line.h" />
     <ClInclude Include="Common\Mutex.h" />
     <ClInclude Include="Common\Storehouse.h" />

@@ -9,7 +9,7 @@
 	2  == 3”Ô–Ú‚Ìƒ‚ƒjƒ^
 	...
 */
-int Conf_DisplayIndex = 1;
+int Conf_DisplayIndex = -1;
 
 // < Ý’è€–Ú
 

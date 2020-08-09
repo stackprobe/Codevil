@@ -49,24 +49,24 @@ static void SettingMenu(void)
 
 	for(; ; )
 	{
-		selectIndex = SmplMenu("ê›íË", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
+		selectIndex = SimpleMenu("ê›íË", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
 
 		switch(selectIndex)
 		{
 		case 0:
-			SmplPadConfig();
+			SimplePadConfig();
 			break;
 
 		case 1:
-			SmplWindowSizeConfig();
+			SimpleWindowSizeConfig();
 			break;
 
 		case 2:
-			SmplVolumeConfig("ÇaÇfÇlâπó ", Gnd.MusicVolume, 0, 100, 1, 10, BGMVolumeChanged); 
+			SimpleVolumeConfig("ÇaÇfÇlâπó ", Gnd.MusicVolume, 0, 100, 1, 10, BGMVolumeChanged); 
 			break;
 
 		case 3:
-			SmplVolumeConfig("ÇrÇdâπó ", Gnd.SEVolume, 0, 100, 1, 10, SEVolumeChanged, SEVolumePulse); 
+			SimpleVolumeConfig("ÇrÇdâπó ", Gnd.SEVolume, 0, 100, 1, 10, SEVolumeChanged, SEVolumePulse); 
 			break;
 
 		case 4:
@@ -95,12 +95,12 @@ void TitleMenu(void)
 	};
 	int selectIndex = 0;
 
-//	SmplMenu_WallColor = GetColor(0, 0, 64); // test
-	SmplMenu_WallPicId = P_TITLE_WALL;
+//	SimpleMenu_WallColor = GetColor(0, 0, 64); // test
+	SimpleMenu_WallPicId = P_TITLE_WALL;
 
 	for(; ; )
 	{
-		selectIndex = SmplMenu("Codevil", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
+		selectIndex = SimpleMenu("Codevil", MENU_ITEMS, lengthof(MENU_ITEMS), selectIndex);
 
 		switch(selectIndex)
 		{
