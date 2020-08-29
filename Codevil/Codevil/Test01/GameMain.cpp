@@ -89,7 +89,7 @@ void GameMain(void)
 		PE.TL = Gnd.EL;
 		PE.Color = GetColor(255, 128, 0);
 		Print_x(xcout(
-			"FST=%I64d,LT=%I64d,FPM=%d,FPMW=%d,FPMA=%.3f(EPF=%d,EC=%d,ELC=%d)"
+			"FST=%I64d,HCT=%I64d,FPM=%d,FPMW=%d,FPMA=%.3f(EPF=%d,EC=%d,ELC=%d)"
 			,FrameStartTime
 			,HzChaserTime
 			,FrameProcessingMillis
