@@ -4,7 +4,7 @@ int IgnoreEscapeKey;
 
 // 他のファイルからは read only {
 __int64 FrameStartTime;
-__int64 LangolierTime;
+__int64 HzChaserTime;
 int FrameProcessingMillis;
 int FrameProcessingMillis_Worst;
 int FrameProcessingMillis_WorstFrame;
@@ -17,10 +17,10 @@ static void CheckHz(void)
 {
 	__int64 currTime = GetCurrTime();
 
-	LangolierTime += 16; // 16.666 より小さいので、60Hzならどんどん引き離されるはず。
-	m_range(LangolierTime, currTime - 100, currTime + 100);
+	HzChaserTime += 16; // 16.666 より小さいので、60Hzならどんどん引き離されるはず。
+	m_range(HzChaserTime, currTime - 100, currTime + 100);
 
-	while(currTime < LangolierTime)
+	while(currTime < HzChaserTime)
 	{
 		Sleep(1);
 		currTime = GetCurrTime();

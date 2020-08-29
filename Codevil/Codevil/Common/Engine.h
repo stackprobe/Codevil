@@ -1,7 +1,7 @@
 extern int IgnoreEscapeKey;
 
 extern __int64 FrameStartTime;
-extern __int64 LangolierTime;
+extern __int64 HzChaserTime;
 extern int FrameProcessingMillis;
 extern int FrameProcessingMillis_Worst;
 extern int FrameProcessingMillis_WorstFrame;

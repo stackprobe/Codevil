@@ -91,7 +91,7 @@ void GameMain(void)
 		Print_x(xcout(
 			"FST=%I64d,LT=%I64d,FPM=%d,FPMW=%d,FPMA=%.3f(EPF=%d,EC=%d,ELC=%d)"
 			,FrameStartTime
-			,LangolierTime
+			,HzChaserTime
 			,FrameProcessingMillis
 			,FrameProcessingMillis_Worst
 			,frmProcMilAvg
