@@ -57,11 +57,11 @@ static int LoadDer(PicInfo_t *parent, int x, int y, int w, int h)
 		errorCase(h < 1 || IMAX - y < h);
 	}
 
+	// ? �͈͊O
 	if(
 		parent->W < x + w ||
 		parent->H < y + h
 		)
-		// ? �͈͊O
 	{
 		m_range(w, 1, 50);
 		m_range(h, 1, 50);

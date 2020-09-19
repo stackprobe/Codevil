@@ -134,6 +134,7 @@ static int DrawPicFunc(Param_t *i)
 			const double F_ZURE = 0.0;
 //			const double F_ZURE = -0.5; // old
 
+			// ? Ž¸”s
 			if(i->Extra.IntPosOn ?
 				DrawModiGraph(
 					d2i(i->Layout->u.Free.LTX),
@@ -160,7 +161,7 @@ static int DrawPicFunc(Param_t *i)
 					grphHdl,
 					1
 					)
-				) // ? Ž¸”s
+				)
 			{
 				if(!i->Extra.IgnoreError)
 				{
@@ -186,6 +187,7 @@ static int DrawPicFunc(Param_t *i)
 
 	case 'R':
 		{
+			// ? Ž¸”s
 			if(i->Extra.IntPosOn ?
 				DrawExtendGraph(
 					d2i(i->Layout->u.Rect.L),
@@ -204,7 +206,7 @@ static int DrawPicFunc(Param_t *i)
 					grphHdl,
 					1
 					)
-				) // ? Ž¸”s
+				)
 			{
 				if(!i->Extra.IgnoreError)
 				{
@@ -226,6 +228,7 @@ static int DrawPicFunc(Param_t *i)
 
 	case 'S':
 		{
+			// ? Ž¸”s
 			if(i->Extra.IntPosOn ?
 				DrawGraph(
 					d2i(i->Layout->u.Simple.X),
@@ -240,7 +243,7 @@ static int DrawPicFunc(Param_t *i)
 					grphHdl,
 					1
 					)
-				) // ? Ž¸”s
+				)
 			{
 				if(!i->Extra.IgnoreError)
 				{
