@@ -2,7 +2,8 @@
 
 int IgnoreEscapeKey;
 
-// 他のファイルからは read only {
+// -- 他のファイルからは read only ここから
+
 __int64 FrameStartTime;
 __int64 HzChaserTime;
 int FrameProcessingMillis;
@@ -11,7 +12,8 @@ int FrameProcessingMillis_WorstFrame;
 int ProcFrame;
 int FreezeInputFrame;
 int WindowIsActive;
-// }
+
+// -- 他のファイルからは read only ここまで
 
 static void CheckHz(void)
 {

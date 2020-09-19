@@ -326,12 +326,13 @@ void DrawFree(int picId, double ltx, double lty, double rtx, double rty, double 
 }
 void DrawRect_LTRB(int picId, double l, double t, double r, double b)
 {
-	// layout check {
-	errorCase(l < -(double)IMAX || (double)IMAX - 1.0 < l);
-	errorCase(t < -(double)IMAX || (double)IMAX - 1.0 < t);
-	errorCase(r < l + 1.0 || (double)IMAX < r);
-	errorCase(b < t + 1.0 || (double)IMAX < b);
-	// }
+	// layout check
+	{
+		errorCase(l < -(double)IMAX || (double)IMAX - 1.0 < l);
+		errorCase(t < -(double)IMAX || (double)IMAX - 1.0 < t);
+		errorCase(r < l + 1.0 || (double)IMAX < r);
+		errorCase(b < t + 1.0 || (double)IMAX < b);
+	}
 
 	Layout_t *i = nb_(Layout_t);
 
@@ -349,10 +350,11 @@ void DrawRect(int picId, double l, double t, double w, double h)
 }
 void DrawSimple(int picId, double x, double y)
 {
-	// layout check {
-	errorCase(x < -(double)IMAX || (double)IMAX < x);
-	errorCase(y < -(double)IMAX || (double)IMAX < y);
-	// }
+	// layout check
+	{
+		errorCase(x < -(double)IMAX || (double)IMAX < x);
+		errorCase(y < -(double)IMAX || (double)IMAX < y);
+	}
 
 	Layout_t *i = nb_(Layout_t);
 
@@ -364,10 +366,11 @@ void DrawSimple(int picId, double x, double y)
 }
 void DrawCenter(int picId, double x, double y)
 {
-	// layout check {
-	errorCase(x < -(double)IMAX || (double)IMAX < x);
-	errorCase(y < -(double)IMAX || (double)IMAX < y);
-	// }
+	// layout check
+	{
+		errorCase(x < -(double)IMAX || (double)IMAX < x);
+		errorCase(y < -(double)IMAX || (double)IMAX < y);
+	}
 
 	DrawBegin(picId, x, y);
 	DrawEnd();

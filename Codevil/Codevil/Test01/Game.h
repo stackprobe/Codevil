@@ -1,10 +1,8 @@
 typedef struct GDc_st
 {
-	// Params {
-	// }
+	// <---- prm
 
-	// Return {
-	// }
+	// <---- ret
 
 	int Dummy;
 }

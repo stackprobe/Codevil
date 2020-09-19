@@ -59,12 +59,13 @@ static MusicInfo_t *LoadMusic(autoList<uchar> *fileData)
 }
 static void UnloadMusic(MusicInfo_t *i)
 {
-	// reset {
-	GetPlayList()->Clear(ReleasePI);
+	// reset
+	{
+		GetPlayList()->Clear(ReleasePI);
 
-	CurrDestMusic = NULL;
-	CurrDestMusicVolumeRate = 0.0;
-	// }
+		CurrDestMusic = NULL;
+		CurrDestMusicVolumeRate = 0.0;
+	}
 
 	UnloadSound(i->Handle);
 	memFree(i);

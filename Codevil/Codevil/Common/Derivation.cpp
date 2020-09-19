@@ -49,12 +49,13 @@ static int LoadDer(PicInfo_t *parent, int x, int y, int w, int h)
 {
 	int der_h;
 
-	// check rect {
-	errorCase(x < 0 || IMAX < x);
-	errorCase(y < 0 || IMAX < y);
-	errorCase(w < 1 || IMAX - x < w);
-	errorCase(h < 1 || IMAX - y < h);
-	// }
+	// check rect
+	{
+		errorCase(x < 0 || IMAX < x);
+		errorCase(y < 0 || IMAX < y);
+		errorCase(w < 1 || IMAX - x < w);
+		errorCase(h < 1 || IMAX - y < h);
+	}
 
 	if(
 		parent->W < x + w ||
